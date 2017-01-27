@@ -1,31 +1,53 @@
-# Angular2
+# SPA com Angular 2
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.25.5.
+[![license](https://img.shields.io/github/license/Rodrigo54/angular2.svg)]()
+[![requirement](https://img.shields.io/badge/API-Codeigniter-orange.svg)](https://github.com/bcit-ci/CodeIgniter)
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+:closed_book: Projeto com finalidade educacional
 
-## Code scaffolding
+##Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+* Single-page application (Angular 2)
+* Responsive (Angular Material 2)
+* API RESTful (CI Rest Server) _veja o codigo [aqui](https://github.com/Rodrigo54/angularjs-codeigniter/tree/master/api)!_
+* Autenticação de usuario (JWT - JSON Web Token)
 
-## Build
+##Sobre o Sistema
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+* Feito em PHP 7
+* Banco de Dados MySQL
+* Framework Codeigniter 3.1.0
+* Hospedado em [rodrigoalves.me/angular2](http://rodrigoalves.me/angular2/)
 
-## Running unit tests
+##Sobre o Desenvolvimento
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* NodeJS
+* Versionado com git
+* Angular CLI (Webpack)
+* SASS pré-processador CSS
+* Typescript
 
-## Running end-to-end tests
+##Autor
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+Criado por Rodrigo Alves Mesquita :smile:
 
-## Deploying to GitHub Pages
+Aluno do 8° periodo do curso de Bacharel em Ciências da Computação na Faculdade Pitágoras
 
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
+##Requisitos
 
-## Further help
+* Git
+* Node.js
+* PHP 5.5 ou superior
+* Servidor Apache
+* MySQL
 
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+##Guia de configuração
+
+1. `git clone https://github.com/Rodrigo54/angular2.git angular2`
+1. `npm install -g angular-cli`
+1. `npm install`
+1. `ng serve` _para criar um servidor de desenvolvimento_
+1. `ng build` _para gerar os arquivos de produção_
+
+leia mais sobre Angular CLI em [cli.angular.io](http://cli.angular.io/)
+

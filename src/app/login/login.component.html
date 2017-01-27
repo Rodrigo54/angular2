@@ -1,0 +1,26 @@
+<div class="container">
+  <md-card>
+    <md-card-title>Login</md-card-title>
+    <form novalidate [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm.value)" >
+      <md-card-content>
+        <i class="material-icons">account_box</i>
+        <md-input-container>
+          <input type="email" md-input placeholder="Email" [formControl]="loginForm.controls['email']">
+        </md-input-container><br>
+      </md-card-content>
+        <div class="erro" *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched">Email requerido.</div>
+        <div class="erro" *ngIf="loginForm.controls.email.errors?.email">Email errado.</div>
+      <md-card-content>
+        <i class="material-icons">lock</i>
+        <md-input-container>
+          <input type="password" md-input placeholder="Senha" [formControl]="loginForm.controls['senha']">
+        </md-input-container>
+      </md-card-content>
+        <div class="erro" *ngIf="loginForm.controls['senha'].hasError('required') && loginForm.controls['senha'].touched">Senha requerida.</div>
+        <div class="erro" *ngIf="erro || loginForm.invalid">{{erro}}</div>
+      <md-card-actions>
+        <button type="submit" md-raised-button>Entrar</button>
+      </md-card-actions>
+    </form>
+  </md-card>
+</div>

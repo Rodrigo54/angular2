@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>{{title}}</h1>
+  <h2>Bem vindo: {{user.nome}}</h2>
+  <p>digite seu nome:</p> <input [(ngModel)]="user.nome">
+  <p>Email: {{user.email}}</p>
+  <button type="submit" md-raised-button (click)="sair()" >Sair</button>
+
+  <md-card *ngFor="let evento of lista">
+    <md-card-content>
+      <p><strong>Titulo:</strong> {{evento.titulo}}</p>
+      <p><strong>Palestrante:</strong> {{evento.palestrante}}</p>
+      <p><strong>Descrição:</strong> {{evento.descricao}}</p>
+    </md-card-content>
+  </md-card>
+</div>
