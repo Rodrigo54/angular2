@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ListaService } from '../lista.service';
 import { AuthService } from '../auth.service';
+import { ListaService } from '../lista.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,8 +17,8 @@ export class DashboardComponent implements OnInit {
   errorMessage: string;
 
   constructor(
-    private router: Router,
     private listaService: ListaService,
+    private router: Router,
     private auth: AuthService
   ) {
     this.user  =  auth.getUserData();
@@ -28,19 +28,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.listaService.getLista()
      .subscribe(
-       dados => this.lista = dados,
-       error =>  this.errorMessage = <any>error
+       dados =>  this.lista = dados || '',
+       error =>  this.errorMessage = (<any>error || 'erro')
      );
-  }
-
-  sair(){
-    this.auth.logout().subscribe(
-        (dados) => {
-          this.auth.deleteToken();
-          this.router.navigate(['/login'])
-          console.log(dados.message);
-        }
-      )
-    console.log('saindo');
   }
 }

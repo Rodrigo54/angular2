@@ -9,17 +9,17 @@ export class AuthService {
   private listaUrl =  environment.apiBaseUrl + '/autenticador/';
   private userData: Object;
 
-  constructor(private http:Http) {}
+  constructor(private http: Http) {}
 
-  login(dados){
-    var body = JSON.stringify(dados);
+  login(dados) {
+    let body = JSON.stringify(dados);
     return this.http.post(this.listaUrl, body)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
 
-  logout(){
-    return this.http.get(this.listaUrl+'sair/')
+  logout() {
+    return this.http.get(this.listaUrl + 'sair/')
                     .map(this.extractData)
                     .catch(this.handleError);
   }
@@ -29,8 +29,8 @@ export class AuthService {
     localStorage.setItem('userData', JSON.stringify(this.userData));
   }
 
-  getUserData(){
-    var dados = localStorage.getItem('userData');
+  getUserData() {
+    let dados = localStorage.getItem('userData');
     return this.userData = JSON.parse(dados);
   }
 
@@ -66,8 +66,8 @@ export class AuthService {
   }
 
   private jwtDecode(token) {
-    var base64Url = token.split('.')[1];
-    var base64 = base64Url.replace('-', '+').replace('_', '/');
+    let base64Url = token.split('.')[1];
+    let base64 = base64Url.replace('-', '+').replace('_', '/');
     return JSON.parse(window.atob(base64));
   }
 

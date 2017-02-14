@@ -1,0 +1,81 @@
+:host {
+  @media only screen and (min-width: 992px){
+    padding: 0!important;
+    padding-right: 0.75rem!important;
+  }
+}
+.main{
+  box-shadow: 2px -7px 5px 1px rgba(0, 0, 0, 0.14);
+  @media only screen and (min-width: 992px){
+    height: calc(100% - 60px);
+    overflow: scroll;
+    background-color: white;
+    position: fixed;
+    width: calc(25% - 0.75rem);
+  }
+}
+.collection {
+  margin: none;
+  border: none;
+  a {
+    color: rgba(0,0,0,.7);
+  }
+}
+ul{
+  border: 0;
+  box-shadow: none;
+  a:hover{
+    background-color: #ddd;
+  }
+  .collapsible-header{
+    border: none;
+    padding: 0px 20px;
+    i{
+      @media only screen and (max-width: 992px){
+        margin: 0 20px 0 0;
+      }
+    }
+  }
+}
+.collapsible-body {
+  padding: 0 2rem;
+}
+.collection-item{
+  border-bottom: 2px solid #fff;
+}
+.sidebar-profile {
+  padding: 25px 24px;
+  background: url(assets/img/profile_bg.png);
+  background-size: cover;
+  .sidebar-profile-image img {
+    width: 50px;
+    height: 50px;
+  }
+  .sidebar-profile-info {
+    margin-top: 5px;
+    a {
+      height: 100%;
+      line-height: 1.5;
+    }
+    p {
+      color: #000;
+      font-size: 14px;
+      margin: 0;
+      font-weight: 700;
+    }
+    span {
+      color: #555;
+      font-size: 13px;
+    }
+    i {
+      color: #555;
+      font-size: 19px;
+    }
+  }
+}
+.material-icons {
+  line-height: inherit;
+  margin: 0 20px 0 0;
+  width: auto;
+  float: left;
+}

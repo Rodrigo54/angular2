@@ -1,15 +1,33 @@
-<div class="container">
-  <h1>{{title}}</h1>
-  <h2>Bem vindo: {{user.nome}}</h2>
-  <p>digite seu nome:</p> <input [(ngModel)]="user.nome">
-  <p>Email: {{user.email}}</p>
-  <button type="submit" md-raised-button (click)="sair()" >Sair</button>
+<div class="main">
 
-  <md-card *ngFor="let evento of lista">
-    <md-card-content>
-      <p><strong>Titulo:</strong> {{evento.titulo}}</p>
-      <p><strong>Palestrante:</strong> {{evento.palestrante}}</p>
-      <p><strong>Descrição:</strong> {{evento.descricao}}</p>
-    </md-card-content>
-  </md-card>
+  <app-nav-bar></app-nav-bar>
+
+  <div class="row">
+    <app-side-nav class="col m3 hide-on-med-and-down"></app-side-nav>
+
+    <div class="col m9">
+      <h1>{{title}}</h1>
+      <h2>Bem vindo: {{user.nome}}</h2>
+
+      <div class="input-field col s12">
+        <input type="text" class="validate" [(ngModel)]="user.nome">
+        <label>Digite seu nome</label>
+      </div>
+
+      <p>Email: {{user.email}}</p>
+
+      <div class="card" *ngFor="let evento of lista">
+        <div class="card-content">
+          <p><strong>Titulo:</strong> {{evento.titulo}}</p>
+          <p><strong>Palestrante:</strong> {{evento.palestrante}}</p>
+          <p><strong>Descrição:</strong> {{evento.descricao}}</p>
+        </div>
+      </div>
+
+      <div *ngIf="errorMessage">
+        {{errorMessage}}
+      </div>
+    </div>
+
+  </div>
 </div>

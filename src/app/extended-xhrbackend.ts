@@ -19,7 +19,7 @@ export class ExtendedXHRBackend extends XHRBackend {
     request.headers.set('Content-Type', 'application/json; charset=utf-8');
     let xhrConnection = super.createConnection(request);
     xhrConnection.response = xhrConnection.response.catch((error: Response) => {
-      if (error.status === 401 || error.status === 403) {
+      if (error.status === 401 || error.status === 403 || error.status === 0) {
         var msg = `${error.status} - ${error.statusText || ''}`
         console.error('acesso não autorizado');
         console.error(msg);

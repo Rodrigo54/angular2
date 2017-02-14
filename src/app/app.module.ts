@@ -2,8 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, XHRBackend } from '@angular/http';
-import { MaterialModule } from '@angular/material';
-import { CustomFormsModule } from 'ng2-validation'
+
+import { MaterializeModule } from 'angular2-materialize';
+import { CustomFormsModule } from 'ng2-validation';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -13,12 +14,16 @@ import { ListaService } from './lista.service';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { ExtendedXHRBackend } from './extended-xhrbackend';
+import { SideNavComponent } from './side-nav/side-nav.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    SideNavComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,7 @@ import { ExtendedXHRBackend } from './extended-xhrbackend';
     HttpModule,
     ReactiveFormsModule,
     routing,
-    MaterialModule.forRoot(),
+    MaterializeModule,
     CustomFormsModule
   ],
   providers: [

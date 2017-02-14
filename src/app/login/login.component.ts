@@ -44,7 +44,7 @@ export class LoginComponent{
             this.auth.setUserData(dados);
             this.router.navigate(['/dashboard'])
           },
-          error =>  this.erro = error.message
+          error =>  this.erro = error.message || 'Erro no Login'
         );
     }
     else{
