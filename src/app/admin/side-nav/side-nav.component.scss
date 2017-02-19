@@ -1,5 +1,6 @@
 :host {
   @media only screen and (min-width: 992px){
+    transition: all 300ms linear;
     padding: 0!important;
     padding-right: 0.75rem!important;
   }
@@ -7,11 +8,11 @@
 .main{
   box-shadow: 2px -7px 5px 1px rgba(0, 0, 0, 0.14);
   @media only screen and (min-width: 992px){
+    width: calc(25% - 0.75rem);
     height: calc(100% - 60px);
-    overflow: scroll;
+    overflow: auto;
     background-color: white;
     position: fixed;
-    width: calc(25% - 0.75rem);
   }
 }
 .collection {

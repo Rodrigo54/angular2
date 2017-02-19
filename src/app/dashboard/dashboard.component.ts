@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
-import { ListaService } from '../lista.service';
+import { ListaService } from './lista.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
     private auth: AuthService
   ) {
     this.user  =  auth.getUserData();
-    this.title = 'dashboard works!';
+    this.title = 'Dashboard works!';
   }
 
   ngOnInit() {
