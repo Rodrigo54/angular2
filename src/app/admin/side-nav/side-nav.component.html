@@ -1,50 +1,66 @@
 <div class="row main">
-  <div class="sidebar-profile">
-      <div class="sidebar-profile-image">
+  <div class="profile">
+      <div class="profile-image">
           <img src="assets/img/profile-image.png" class="circle" alt="">
       </div>
-      <div class="sidebar-profile-info">
-          <a href="javascript:void(0);" class="account-settings-link">
+      <div class="profile-info">
+        <ul materialize="collapsible" class="collapsible collapsible-accordion">
+          <li>
+            <a #arrow0 class="collapsible-header" (click)="clicker($event, arrow0)">
               <p>{{user.nome}}</p>
-              <span>{{user.email}}<i class="material-icons right">arrow_drop_down</i></span>
-          </a>
+              <span class="truncate">{{user.email}}</span><i class="material-icons right">keyboard_arrow_left</i>
+            </a>
+            <div class="collapsible-body collection">
+              <a href="javascript:void(0);" class="collection-item">
+                <i class="material-icons">account_box</i>Perfil
+              </a>
+              <a href="" (click)="sair($event)" class="collection-item">
+                <i class="material-icons">exit_to_app</i>Sair
+              </a>
+            </div>
+          </li>
+        </ul>
       </div>
   </div>
   <div class="collection">
-      <a href="#!" class="collection-item waves-effect waves-teal">
+      <a routerLink="/dashboard" routerLinkActive="active" class="collection-item waves-effect waves-teal">
         <i class="material-icons">settings_input_svideo</i>Dashboard
       </a>
-      <a href="#!" class="collection-item">
+      <a href="javascript:void(0);" class="collection-item">
         <i class="material-icons">desktop_windows</i>2 Sidebar Link
       </a>
-      <ul materialize="collapsible" class="collection-item no-padding collapsible collapsible-accordion">
+      <ul materialize="collapsible" class="collapsible collapsible-accordion">
         <li>
-          <a #arrow1 class="collapsible-header waves-effect waves-teal" (click)="clicker($event, arrow1)">
-            <i class="material-icons">apps</i>Dropdown<i class="material-icons right">keyboard_arrow_right</i>
+          <a #arrow1 class="collapsible-header collection-item waves-effect" (click)="clicker($event, arrow1)">
+            <i class="material-icons">apps</i>Dropdown<i class="material-icons right">keyboard_arrow_left</i>
           </a>
           <div class="collapsible-body collection">
-            <a href="#!" class="collection-item">First</a>
-            <a href="#!" class="collection-item">Second</a>
-            <a href="#!" class="collection-item">Third</a>
-            <a href="#!" class="collection-item">Fourth</a>
+            <a href="javascript:void(0);" class="collection-item">First</a>
+            <a href="javascript:void(0);" class="collection-item">Second</a>
+            <a href="javascript:void(0);" class="collection-item">Third</a>
+            <a href="javascript:void(0);" class="collection-item">Fourth</a>
           </div>
         </li>
       </ul>
-      <a href="#!" class="collection-item">
+      <a href="javascript:void(0);" class="collection-item">
         <i class="material-icons">trending_up</i>3 Sidebar Link
       </a>
-      <ul materialize="collapsible" class="collection-item no-padding collapsible collapsible-accordion">
+      <ul materialize="collapsible" class="collapsible collapsible-accordion">
         <li>
-          <a #arrow2 class="collapsible-header waves-effect waves-teal" (click)="clicker($event, arrow2)" >
-            <i class="material-icons">settings</i>Dropdown 2<i class="material-icons right">keyboard_arrow_right</i>
+          <a #arrow2 class="collapsible-header collection-item waves-effect" (click)="clicker($event, arrow2)" >
+            <i class="material-icons">settings</i>Dropdown 2<i class="material-icons right">keyboard_arrow_left</i>
           </a>
           <div class="collapsible-body collection">
-            <a href="#!" class="collection-item">First</a>
-            <a href="#!" class="collection-item">Second</a>
-            <a href="#!" class="collection-item">Third</a>
-            <a href="#!" class="collection-item">Fourth</a>
+            <a href="javascript:void(0);" class="collection-item">First</a>
+            <a href="javascript:void(0);" class="collection-item">Second</a>
+            <a href="javascript:void(0);" class="collection-item">Third</a>
+            <a href="javascript:void(0);" class="collection-item">Fourth</a>
           </div>
         </li>
       </ul>
+  </div>
+  <div class="footer">
+    <p class="copyright">Escritório Escola ©</p>
+    <a href="#!">Privacy</a> &amp; <a href="#!">Terms</a>
   </div>
 </div>

@@ -21,7 +21,7 @@ export class ListaService {
   }
 
   private extractData(res: Response) {
-    let body = res.json();
+    const body = res.json();
     return body || { };
   }
 
@@ -31,12 +31,12 @@ export class ListaService {
     if (error instanceof Response) {
       const body = error.json() || '';
       const err = body.error || JSON.stringify(body);
-      if(error.status == 404) {
+      if (error.status === 404) {
         errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
       }else {
         errMsg = error.status;
       }
-    } else {
+    }else {
       errMsg = error.message ? error.message : error.toString();
     }
     console.error(errMsg);

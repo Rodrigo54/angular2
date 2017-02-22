@@ -12,7 +12,7 @@ export class AuthService {
   constructor(private http: Http) {}
 
   login(dados) {
-    let body = JSON.stringify(dados);
+    const body = JSON.stringify(dados);
     return this.http.post(this.listaUrl, body)
                     .map(this.extractData)
                     .catch(this.handleError);
@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   getUserData() {
-    let dados = localStorage.getItem('userData');
+    const dados = localStorage.getItem('userData');
     return this.userData = JSON.parse(dados);
   }
 
@@ -48,7 +48,7 @@ export class AuthService {
   }
 
   private extractData(res: Response) {
-    let body = res.json();
+    const body = res.json();
     return body || { };
   }
 
@@ -56,7 +56,7 @@ export class AuthService {
     // In a real world app, we might use a remote logging infrastructure
     let errMsg: string;
     if (error instanceof Response) {
-      let body = error.json();
+      const body = error.json();
       errMsg = body;
     } else {
       errMsg = error.message ? error.message : error.toString();
@@ -66,8 +66,8 @@ export class AuthService {
   }
 
   private jwtDecode(token) {
-    let base64Url = token.split('.')[1];
-    let base64 = base64Url.replace('-', '+').replace('_', '/');
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace('-', '+').replace('_', '/');
     return JSON.parse(window.atob(base64));
   }
 

@@ -1,5 +1,5 @@
   <div class="navbar-fixed">
-    <nav class="indigo">
+    <nav>
       <div class="nav-wrapper">
         <a (click)="sideHidden($event)" class="left menu hide-on-med-and-down"><i class="material-icons right">menu</i></a>
         <a href="#!" class="brand-logo">Systema</a>
@@ -7,7 +7,7 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="sass.html">Sass</a></li>
           <li><a href="badges.html">Components</a></li>
-          <li><a href="" (click)="sair()">Sair<i class="material-icons right">exit_to_app</i></a></li>
+          <li><a href="" (click)="sair($event)">Sair<i class="material-icons right">exit_to_app</i></a></li>
         </ul>
       </div>
     </nav>

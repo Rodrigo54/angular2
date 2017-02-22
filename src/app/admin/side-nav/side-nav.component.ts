@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../auth.service';
+declare var jQuery: any;
 
 @Component({
   selector: 'app-side-nav',
@@ -24,12 +25,28 @@ export class SideNavComponent implements OnInit {
   }
 
   clicker(event, arrow) {
-    let text = arrow.getElementsByClassName("right")["0"].innerHTML;
-    if(text == "keyboard_arrow_right") {
-      arrow.getElementsByClassName("right")["0"].innerHTML = "keyboard_arrow_down";
+    event.preventDefault();
+    const text = jQuery(arrow).find('.right').text();
+    // let text = arrow.getElementsByClassName("right")["0"].innerHTML;
+    // console.log(text);
+    if (text === 'keyboard_arrow_left') {
+      jQuery(arrow).find('.right').text('keyboard_arrow_down');
+      // arrow.getElementsByClassName("right")["0"].innerHTML = "keyboard_arrow_down";
+    }else {
+      jQuery(arrow).find('.right').text('keyboard_arrow_left');
+      // arrow.getElementsByClassName("right")["0"].innerHTML = "keyboard_arrow_right";
     }
-    else{
-      arrow.getElementsByClassName("right")["0"].innerHTML = "keyboard_arrow_right";
-    }
+  }
+
+  sair(event) {
+    event.preventDefault();
+    this.auth.logout().subscribe(
+      (dados) => {
+        this.auth.deleteToken();
+        this.router.navigate(['/login']);
+        console.log(dados.message);
+      }
+    );
+    console.log('saindo');
   }
 }

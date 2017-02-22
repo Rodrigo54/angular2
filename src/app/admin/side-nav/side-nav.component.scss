@@ -1,62 +1,100 @@
+$text-color: lighten(#000,45%);
+$largura: 17%;
+$font-size: 13px;
+
 :host {
-  @media only screen and (min-width: 992px){
+   @media only screen and (min-width: 1200px){
+    width: $largura !important;
+  }
+  @media only screen and (min-width: 993px){
     transition: all 300ms linear;
     padding: 0!important;
-    padding-right: 0.75rem!important;
+    padding-right: 0.75rem !important;
+  }
+  i.material-icons  {
+    line-height: 3rem;
+    margin: 0 10px 0 0;
+    width: auto;
+    float: left;
+    font-size: 19px;
+  }
+  li.active{
+    background-color: transparent;
   }
 }
 .main{
   box-shadow: 2px -7px 5px 1px rgba(0, 0, 0, 0.14);
+  display: flex;
+  flex-direction: column;
+  @media only screen and (min-width: 1200px){
+    width: calc( #{$largura} - 0.75rem ) !important;
+  }
   @media only screen and (min-width: 992px){
     width: calc(25% - 0.75rem);
     height: calc(100% - 60px);
-    overflow: auto;
+    overflow-y: scroll;
     background-color: white;
     position: fixed;
   }
 }
 .collection {
-  margin: none;
   border: none;
-  a {
-    color: rgba(0,0,0,.7);
-  }
+  overflow: visible;
 }
-ul{
-  border: 0;
+.collapsible{
+  margin: 0;
+  border: none;
   box-shadow: none;
-  a:hover{
+  &-header.active,
+  li.active > &-body{
+    background-color: #eee;
+    color: $text-color !important;
+  }
+  &-header:hover{
     background-color: #ddd;
   }
-  .collapsible-header{
-    border: none;
-    padding: 0px 20px;
-    i{
-      @media only screen and (max-width: 992px){
-        margin: 0 20px 0 0;
-      }
+  &-body {
+    padding: 0;
+    width: 100%;
+    background-color: transparent;
+    & > .collection-item{
+      padding-left: 55px;
+      background-color: transparent;
     }
   }
 }
-.collapsible-body {
-  padding: 0 2rem;
+a.collection-item{
+  font-size: $font-size;
+  font-weight: 500;
+  line-height: 3rem;
+  border-bottom: none;
+  color: $text-color;
+  padding: 0px;
+  padding-left: 20px;
+  height: 3rem;
+  .right{
+    margin-right: 10px;
+  }
 }
-.collection-item{
-  border-bottom: 2px solid #fff;
-}
-.sidebar-profile {
+.profile {
   padding: 25px 24px;
-  background: url(assets/img/profile_bg.png);
+  background: url('../../../assets/img/profile_bg.png'); // bung do ng cli
+  // background: url('assets/img/profile_bg.png');
   background-size: cover;
-  .sidebar-profile-image img {
+  &-image img {
     width: 50px;
     height: 50px;
   }
-  .sidebar-profile-info {
+  &-info {
     margin-top: 5px;
-    a {
-      height: 100%;
+    a.collapsible-header{
+      min-height: 100%;
       line-height: 1.5;
+      color: $text-color;
+      cursor: pointer;
+      padding: 0;
+      background-color: transparent;
+      border: none;
     }
     p {
       color: #000;
@@ -66,17 +104,43 @@ ul{
     }
     span {
       color: #555;
-      font-size: 13px;
+      font-size: $font-size
     }
-    i {
-      color: #555;
-      font-size: 19px;
+    i.right{
+      margin-right: -1rem;
+      margin-top: -1.2rem;
+      line-height: 1;
+      height: 19px;
+    }
+    li.active > .collapsible-body{
+      background-color: transparent;
+      margin-top: 10px;
+      .collection-item{
+        padding-left: 5px;
+        &:hover{
+          background-color: hsl(0, 0%, 95%);
+        }
+      }
     }
   }
 }
-.material-icons {
-  line-height: inherit;
-  margin: 0 20px 0 0;
-  width: auto;
-  float: left;
+
+.footer {
+  margin-top: auto;
+  border-top: 1px solid #e0e0e0;
+  color: #212121;
+  height: 96px;
+  padding: 24px;
+  width: 100%;
+  font-size: $font-size;
+  line-height: 24px;
+  p{
+    margin: 0;
+  }
+  a{
+    display: inline;
+    padding:0;
+    margin: 0;
+    font-size: inherit;
+  }
 }

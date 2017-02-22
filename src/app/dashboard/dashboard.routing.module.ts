@@ -8,7 +8,7 @@ import { AdminComponent } from '../admin/admin.component';
 const dashboardRoutes: Routes = [
   { path: '', component: AdminComponent,
     children: [
-      { path: '', component: DashboardComponent},
+      { path: '', component: DashboardComponent, data: { title: 'Dashboard' }},
     ]
   },
 ];
