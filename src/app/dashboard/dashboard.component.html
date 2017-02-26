@@ -1,18 +1,47 @@
-<h1>{{title}}</h1>
-<h2>Bem vindo: {{user.nome}}</h2>
-
-<div class="input-field col s12">
-  <input type="text" class="validate" name="nome" [value]="user.nome" [(ngModel)]="user.nome">
-  <label>Digite seu nome</label>
+<h3>{{title}}</h3>
+<div class="row">
+  <div class="col s4">
+    <div class="card">
+      <div class="card-content center-align">
+        <h1>{{totais}}</h1>
+        <span class="card-title">Total de Inscritos</span>
+      </div>
+    </div>
+  </div>
+  <div class="col s4">
+    <div class="card">
+      <div class="card-content">
+        <chart [type]="charPie.type" [data]="charPie.data" [options]="charPie.options"></chart>
+      </div>
+    </div>
+  </div>
+  <div class="col s4">
+    <div class="card">
+      <div class="card-content">
+        <!-- <chart [type]="charPie.type" [data]="charPie.data" [options]="charPie.options"></chart> -->
+      </div>
+    </div>
+  </div>
 </div>
 
-<p>Email: {{user.email}}</p>
-
-<div class="card" *ngFor="let evento of lista">
+<div class="card">
   <div class="card-content">
-    <p><strong>Titulo:</strong> {{evento.titulo}}</p>
-    <p><strong>Palestrante:</strong> {{evento.palestrante}}</p>
-    <p><strong>Descrição:</strong> {{evento.descricao}}</p>
+    <table class="striped">
+      <thead>
+        <tr>
+          <th data-field="id">Titulo</th>
+          <th data-field="name">Palestrante</th>
+          <th data-field="price">Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let evento of lista">
+          <td>{{evento.titulo}}</td>
+          <td>{{evento.palestrante}}</td>
+          <td>{{evento.descricao}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 

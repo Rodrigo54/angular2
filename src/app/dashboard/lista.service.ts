@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment';
 export class ListaService {
 
   private listaUrl = environment.apiBaseUrl + '/eventos';
+  private totaisUrl = environment.apiBaseUrl + '/Estatisticas/totais';
 
   constructor(private http: Http) { }
 
@@ -16,6 +17,11 @@ export class ListaService {
 
   getLista() {
     return this.http.get(this.listaUrl)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+  getTotais() {
+    return this.http.get(this.totaisUrl)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
