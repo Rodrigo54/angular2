@@ -57,7 +57,7 @@ export class DashboardComponent implements OnInit {
       dados =>  {
         this.charPie = this.createCharPie(dados);
         this.totais = dados.usuarios;
-        console.log(this.charPie);
+        // console.log(this.charPie);
       },
       error =>  this.errorMessage = (<any>error || 'erro')
     );

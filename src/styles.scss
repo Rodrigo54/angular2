@@ -16,7 +16,8 @@ $error-color: color("red", "base") !default;
 $link-color: color("light-blue", "darken-1") !default;
 
 @import "node_modules/materialize-css/sass/components/variables";
-$roboto-font-path: "../node_modules/materialize-css/fonts/roboto/"; // fix font path
+// $roboto-font-path: "../node_modules/materialize-css/fonts/roboto/"; // fix font path
+$roboto-font-path: "/assets/fonts/"; // fix font path
 
 // Reset
 @import "node_modules/materialize-css/sass/components/normalize";

@@ -78,8 +78,7 @@ a.collection-item{
 }
 .profile {
   padding: 25px 24px;
-  background: url('../../../assets/img/profile_bg.png'); // bung do ng cli
-  // background: url('assets/img/profile_bg.png');
+  background: url('/assets/img/profile_bg.png');
   background-size: cover;
   &-image img {
     width: 50px;
