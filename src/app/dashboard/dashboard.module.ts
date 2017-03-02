@@ -7,6 +7,7 @@ import { ChartModule } from 'angular2-chartjs';
 import { DashboardComponent } from './dashboard.component';
 import { ListaService } from './lista.service';
 import { AdminModule } from '../admin/admin.module';
+import { DadosResolve } from './dados.resolve';
 
 @NgModule({
   imports: [
@@ -20,6 +21,6 @@ import { AdminModule } from '../admin/admin.module';
   declarations: [
     DashboardComponent,
   ],
-  providers: [ ListaService ],
+  providers: [ ListaService, DadosResolve ],
 })
 export class DashboardModule {}

@@ -1,0 +1,9 @@
+table{
+  line-height: 1;
+}
+td {
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

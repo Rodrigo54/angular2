@@ -24,27 +24,6 @@
   </div>
 </div>
 
-<div class="card">
-  <div class="card-content">
-    <table class="striped">
-      <thead>
-        <tr>
-          <th data-field="id">Titulo</th>
-          <th data-field="name">Palestrante</th>
-          <th data-field="price">Descrição</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let evento of lista">
-          <td>{{evento.titulo}}</td>
-          <td>{{evento.palestrante}}</td>
-          <td>{{evento.descricao}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
 <div *ngIf="errorMessage">
   {{errorMessage}}
 </div>

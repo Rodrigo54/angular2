@@ -1,0 +1,33 @@
+<h3>{{title}}</h3>
+<div class="card">
+  <div class="card-content">
+    <table class="striped responsive-table">
+      <thead>
+        <tr>
+          <th data-field="id">#</th>
+          <th data-field="titulo">Titulo</th>
+          <th data-field="tipo">Tipo</th>
+          <th data-field="palestrante">Palestrante</th>
+          <th data-field="horario">Horário</th>
+          <th data-field="data">Data</th>
+          <th data-field="vagas">Nº Vagas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let evento of lista, let i = index">
+          <td>{{i+1}}</td>
+          <td>{{evento.titulo}}</td>
+          <td>{{evento.tipo}}</td>
+          <td>{{evento.palestrante}}</td>
+          <td>{{evento.horario}}</td>
+          <td>{{evento.data}}</td>
+          <td>{{evento.vagas}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div *ngIf="errorMessage">
+  {{errorMessage}}
+</div>

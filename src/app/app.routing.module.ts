@@ -10,7 +10,11 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard',
     loadChildren: 'app/dashboard/dashboard.module#DashboardModule',
-    canActivate: [AuthGuard]
+    canLoad: [AuthGuard]
+  },
+  { path: 'eventos',
+    loadChildren: 'app/eventos/eventos.module#EventosModule',
+    canLoad: [AuthGuard]
   },
 ];
 

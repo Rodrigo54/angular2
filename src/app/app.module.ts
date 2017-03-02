@@ -15,6 +15,7 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { ExtendedXHRBackend } from './extended-xhrbackend';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { EventosModule } from './eventos/eventos.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
     CustomFormsModule,
     // meus imports
     AppRoutingModule,
-    DashboardModule
+    DashboardModule,
+    EventosModule
   ],
   providers: [
     { provide: XHRBackend, useClass: ExtendedXHRBackend },

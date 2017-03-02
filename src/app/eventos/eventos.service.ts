@@ -4,14 +4,14 @@ import { Observable } from 'rxjs/Observable';
 import { environment } from '../../environments/environment';
 
 @Injectable()
-export class ListaService {
+export class EventosService {
 
-  private totaisUrl = environment.apiBaseUrl + '/Estatisticas/totais';
+  private listaUrl = environment.apiBaseUrl + '/eventos';
 
   constructor(private http: Http) { }
 
-  getTotais() {
-    return this.http.get(this.totaisUrl)
+  getLista() {
+    return this.http.get(this.listaUrl)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
@@ -38,6 +38,4 @@ export class ListaService {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
-
-
 }
