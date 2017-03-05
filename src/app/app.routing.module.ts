@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
     loadChildren: 'app/eventos/eventos.module#EventosModule',
     canLoad: [AuthGuard]
   },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

@@ -13,14 +13,16 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app.routing.module';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './guards/auth.guard';
-import { ExtendedXHRBackend } from './extended-xhrbackend';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { EventosModule } from './eventos/eventos.module';
+import { DefaultBackendProvider } from './extended-xhrbackend';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,7 @@ import { EventosModule } from './eventos/eventos.module';
     EventosModule
   ],
   providers: [
-    { provide: XHRBackend, useClass: ExtendedXHRBackend },
+    DefaultBackendProvider,
     AuthService,
     AuthGuard
   ],

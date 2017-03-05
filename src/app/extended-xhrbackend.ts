@@ -26,7 +26,7 @@ export class ExtendedXHRBackend extends XHRBackend {
     const xhrConnection = super.createConnection(request);
     xhrConnection.response = xhrConnection.response.catch((error: Response) => {
       if (error.status === 401 || error.status === 403 || error.status === 0) {
-        const msg = `${error.status} - ${error.statusText || ''}`;
+        const msg = `${error.status} - ${error.statusText || 'sem conexão'}`;
         console.error('acesso não autorizado');
         console.error(msg);
         localStorage.removeItem('token');
@@ -37,3 +37,5 @@ export class ExtendedXHRBackend extends XHRBackend {
     return xhrConnection;
   }
 }
+
+export const DefaultBackendProvider = { provide: XHRBackend, useClass: ExtendedXHRBackend };

@@ -1,0 +1,21 @@
+.valign-wrapper{
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  background: url('/assets/img/mountains5.png') no-repeat;
+  background-size: cover;
+}
+h1 > span{
+  font-size: 120px;
+}
+span{
+  color: #fff;
+  text-shadow: 2px 2px 2px rgba(0,0,0,.3);
+  font-size: 22px;
+}
+.valign{
+  margin: auto;
+}
+a{
+  margin-top: 25px;
+}
