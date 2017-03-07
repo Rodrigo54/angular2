@@ -1,9 +1,48 @@
+.card{
+  overflow: scroll;
+  display:flex;
+  align-items:flex-start;
+  align-content:flex-start;
+  &-content{
+    width: auto;
+    min-height: 450px;
+    @media only screen and (min-width: 993px){
+      width: 100%;
+    }
+  }
+}
 table{
   line-height: 1;
+  tr.active{
+    background-color: #b2dfdb;
+  }
 }
 td {
-  max-width: 300px;
+  max-width: 150px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding: 2px 5px;
+  cursor: pointer;
+  label{
+    padding-left: 25px;
+  }
+  .btn{
+    padding: 0 10px;
+  }
+}
+.pagination{
+  display: flex;
+  justify-content: space-between;
+}
+.tools, form{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+}
+.not-found{
+  padding: 10px;
+  font-size: 18px;
 }

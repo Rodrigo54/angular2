@@ -33,8 +33,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
           {
             label: 'My First dataset',
             data: dados,
-            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-            hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+            backgroundColor: ['#ffa726', '#26a69a', '#7e57c2'],
+            hoverBackgroundColor: ['#ffb74d', '#4db6ac', '#9575cd']
           }
         ]
       },
@@ -67,12 +67,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
       },
       options: {
         responsive: true,
-        legend:{
+        legend: {
           display: false
         },
-        title:{
+        title: {
           text: 'Inscritos por Curso',
-          display: true
+          display: true,
+          fontFamily: '"Roboto", sans-serif',
+          fontSize: 20,
+          fontStyle: 'normal'
         },
         scales: {
             xAxes: [{
