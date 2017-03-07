@@ -1,7 +1,7 @@
 <h3>{{title}}</h3>
 <div class="card">
   <div class="card-content">
-    <div class="row tools">
+    <div class="row tools" *ngIf="lista.length !== 0">
       <button (click)="reset()" class="btn waves-effect waves-light">
         <i class="material-icons">refresh</i>
       </button>
@@ -15,7 +15,7 @@
           <select materialize="material_select"
           [materializeSelectOptions]="selectOptions"
           formControlName="tipo" name="tipo">
-            <option value="" disabled selected>Escolha um Tipo</option>
+            <option value="titulo" disabled selected>Escolha um Tipo</option>
             <option *ngFor="let option of selectOptions" [value]="option.value">{{option.name}}</option>
           </select>
           <label>Por</label>
@@ -32,7 +32,7 @@
         <i class="material-icons">send</i>
       </button>
     </div>
-    <table class="striped">
+    <table class="striped" *ngIf="pagedItems.length !== 0">
       <thead>
         <tr>
           <th data-field="id">#</th>
@@ -65,31 +65,27 @@
           <td><a class="btn green waves-effect waves-light"><i class="material-icons">mode_edit</i></a></td>
           <td><a class="btn red waves-effect waves-light"><i class="material-icons">delete</i></a></td>
         </tr>
-        <tr *ngIf="pagedItems.length == 0">
-          <td colspan="11" class="not-found">Nada Encontrado</td>
-        </tr>
       </tbody>
     </table>
-          <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-          <li class="waves-effect" [ngClass]="{disabled:pager.currentPage === 1}">
-          <a (click)="setPage(1)"><i class="material-icons">first_page</i></a>
-          </li>
-          <li class="waves-effect" [ngClass]="{disabled:pager.currentPage === 1}">
-          <a (click)="setPage(pager.currentPage - 1)"><i class="material-icons">chevron_left</i></a>
-          </li>
-          <li class="waves-effect" *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-          <a (click)="setPage(page)">{{page}}</a>
-          </li>
-          <li class="waves-effect" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-          <a (click)="setPage(pager.currentPage + 1)"><i class="material-icons">chevron_right</i></a>
-          </li>
-          <li class="waves-effect" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-          <a (click)="setPage(pager.totalPages)"><i class="material-icons">last_page</i></a>
-          </li>
-          </ul>
+    <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+      <li class="waves-effect" [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(1)"><i class="material-icons">first_page</i></a>
+      </li>
+      <li class="waves-effect" [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(pager.currentPage - 1)"><i class="material-icons">chevron_left</i></a>
+      </li>
+      <li class="waves-effect" *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+        <a (click)="setPage(page)">{{page}}</a>
+      </li>
+      <li class="waves-effect" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.currentPage + 1)"><i class="material-icons">chevron_right</i></a>
+      </li>
+      <li class="waves-effect" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.totalPages)"><i class="material-icons">last_page</i></a>
+      </li>
+    </ul>
+    <div *ngIf="errorMessage" class="not-found">
+      {{errorMessage}}
+    </div>
   </div>
-</div>
-
-<div *ngIf="errorMessage">
-  {{errorMessage}}
 </div>

@@ -12,6 +12,11 @@ export class EventosResolve implements Resolve<any> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
     ): Observable<any>|Promise<any>|any {
-      return this.eventosService.getLista();
+
+      return this.eventosService.getLista().toPromise().then(
+        data => { return data },
+        erro => { return erro }
+      );
   }
+
 }

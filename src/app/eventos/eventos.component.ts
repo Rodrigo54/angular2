@@ -12,11 +12,11 @@ declare var Materialize: any;
   templateUrl: './eventos.component.html',
   styleUrls: ['./eventos.component.scss']
 })
-export class EventosComponent implements OnInit, OnDestroy, AfterViewChecked  {
+export class EventosComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   title: string;
   errorMessage: string;
-  lista: Array<Object>;
+  lista: Array<Object>|any;
   inscricao: Subscription;
   pageSize = 15;
 
@@ -51,27 +51,40 @@ export class EventosComponent implements OnInit, OnDestroy, AfterViewChecked  {
       (dados: Object) => {
         this.title = dados['title'];
         this.lista = dados['eventos'];
-        this.setPage(1);
-      },
-      error =>  this.errorMessage = (<any>error || 'erro')
+      }
     );
+    if ( Array.isArray(this.lista) ) {
+      this.setPage(1);
+    } else {
+      this.errorMessage = this.lista.message;
+      this.pagedItems = [];
+      this.lista = [];
+    }
   }
 
   search(dados: any) {
-    const tipo = dados.tipo.toLowerCase() || 'titulo';
-    this.searchResult = this.lista.filter( (evento: any) => {
-      const valor = evento[tipo].toLowerCase();
-      const pesquisa = dados.pesquisar.toLowerCase();
-      if (valor.search(pesquisa) !== -1) {
-        return evento;
+    const tipo = dados.tipo ? dados.tipo.toLowerCase() : 'titulo';
+    const pesquisa = dados.pesquisar ? dados.pesquisar.toLowerCase() : '';
+    this.searchResult = this.lista.filter(
+      (evento: any) => {
+        const valor = evento[tipo].toLowerCase();
+        if (valor.search(pesquisa) !== -1) {
+          return evento;
+        }
       }
-    });
+    );
+    if (this.searchResult.length === 0){
+      this.errorMessage = 'Nada Encontrado';
+    }
     this.setPage(1);
   }
 
   reset() {
     delete this.searchResult;
-    this.setPage(1);
+    delete this.errorMessage;
+    this.searchForm.reset();
+    this.pager = this.pagerService.getPager(this.lista.length, 1, this.pageSize);
+    this.pagedItems = this.lista.slice(this.pager.startIndex, this.pager.endIndex + 1);
   }
 
   setPage(page: number) {
@@ -88,7 +101,6 @@ export class EventosComponent implements OnInit, OnDestroy, AfterViewChecked  {
 
   rowClick(event, el) {
     const elem = $(el).find('[type="checkbox"]');
-    console.log(el);
     if (elem.prop('checked') === false) {
       $(elem).prop('checked', true);
        $(el).toggleClass('active', true);

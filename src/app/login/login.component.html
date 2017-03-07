@@ -8,7 +8,7 @@
         <div class="input-field col s12">
           <i class="material-icons prefix">account_box</i>
           <input type="email" name="email" class="validate" [formControl]="loginForm.controls['email']">
-          <label for="icon_prefix">Email</label>
+          <label for="email">Email</label>
           <p class="erro" *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched">Email requerido.</p>
           <p class="erro" *ngIf="loginForm.controls.email.errors?.email">Email errado.</p>
         </div>
@@ -16,7 +16,7 @@
         <div class="input-field col s12">
           <i class="material-icons prefix">lock</i>
           <input type="password" name="senha" class="validate" [formControl]="loginForm.controls['senha']">
-          <label for="icon_prefix">Senha</label>
+          <label for="senha">Senha</label>
           <p class="erro" *ngIf="loginForm.controls['senha'].hasError('required') && loginForm.controls['senha'].touched">Senha requerida.</p>
         </div>
 
