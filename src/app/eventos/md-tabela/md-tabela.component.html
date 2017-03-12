@@ -1,0 +1,77 @@
+<div class="row tools" *ngIf="options.search">
+  <button (click)="reset()" class="btn waves-effect waves-light">
+    <i class="material-icons">refresh</i>
+  </button>
+  <form materialize [formGroup]="searchForm" (ngSubmit)="search(searchForm.value)">
+    <div class="input-field col s4">
+      <input id="pesquisar" name="pesquisar" type="text" class="validate"
+      formControlName="pesquisar">
+      <label for="pesquisar">Pesquisar</label>
+    </div>
+    <div class="input-field col s4">
+      <select materialize="material_select"
+      [materializeSelectOptions]="selectOptions"
+      formControlName="tipo" name="tipo">
+        <option [value]="options.labelPrimary" disabled selected>Escolha um Tipo</option>
+        <option *ngFor="let option of label" [value]="option.value">{{option.name}}</option>
+      </select>
+      <label>Por</label>
+    </div>
+    <button type="submit" class="btn waves-effect waves-light col s3">Pesquisar
+      <i class="material-icons right">search</i>
+    </button>
+  </form>
+  <div class="input-field col s2">
+    <input [(ngModel)]="pageSize" name="pageSize" id="pageSize" type="number" class="validate">
+    <label for="pageSize" class="active">Por pagina</label>
+  </div>
+  <button (click)="setPage(1)" class="btn waves-effect waves-light">
+    <i class="material-icons">send</i>
+  </button>
+</div>
+<table class="bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th *ngFor="let l of label" class="{{l?.class}}">{{l.name}}</th>
+      <th *ngFor="let a of options.actions" class="center">{{a.name}}</th>
+      <th class="center">Presença</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr (click)="rowClick($event, trr)" *ngFor="let item of pagedItems, let i = index" #trr>
+      <td class="row-id">
+        <input type="checkbox" id="{{'c'+i+1}}" />
+        <label for="{{'c'+i+1}}">{{i+1+pager.startIndex}}</label>
+      </td>
+      <td *ngFor="let l of label" class="{{l?.class}}">{{item[l.value]}}</td>
+      <td *ngFor="let a of options.actions" class="center">
+        <a *ngIf="isObject(a.routerLink)" routerLink="{{a.routerLink['path']+item[a.routerLink['key']]}}" [class]="a.class+' btn-flat waves-effect waves-light'"><i class="material-icons">{{a.icon}}</i></a>
+        <a *ngIf="a.routerLink && !isObject(a.routerLink)" routerLink="{{item[a.routerLink]}}" [class]="a.class+' btn-flat waves-effect waves-light'"><i class="material-icons">{{a.icon}}</i></a>
+      </td>
+      <td class="center">
+        {{ presenca(item.presenca) }}
+      </td>
+    </tr>
+  </tbody>
+</table>
+<ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+  <li class="waves-effect" [ngClass]="{disabled:pager.currentPage === 1}">
+    <a (click)="setPage(1)"><i class="material-icons">first_page</i></a>
+  </li>
+  <li class="waves-effect" [ngClass]="{disabled:pager.currentPage === 1}">
+    <a (click)="setPage(pager.currentPage - 1)"><i class="material-icons">chevron_left</i></a>
+  </li>
+  <li class="waves-effect" *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+    <a (click)="setPage(page)">{{page}}</a>
+  </li>
+  <li class="waves-effect" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+    <a (click)="setPage(pager.currentPage + 1)"><i class="material-icons">chevron_right</i></a>
+  </li>
+  <li class="waves-effect" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+    <a (click)="setPage(pager.totalPages)"><i class="material-icons">last_page</i></a>
+  </li>
+</ul>
+<div *ngIf="errorMessage" class="not-found">
+  {{errorMessage}}
+</div>

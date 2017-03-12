@@ -6,12 +6,18 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class EventosService {
 
-  private listaUrl = environment.apiBaseUrl + '/eventos';
+  private listaUrl = environment.apiBaseUrl + '/eventos/';
 
   constructor(private http: Http) { }
 
   getLista() {
     return this.http.get(this.listaUrl)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+  getEvento(id) {
+    return this.http.get(this.listaUrl + id)
                     .map(this.extractData)
                     .catch(this.handleError);
   }

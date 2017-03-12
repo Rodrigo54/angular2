@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../auth.service';
-declare var jQuery: any;
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-nav-bar',
@@ -23,9 +23,9 @@ export class NavBarComponent implements OnInit {
 
   sideHidden(event) {
     event.preventDefault();
-    const sideNav = jQuery('#sideNav');
+    const sideNav = $('#sideNav');
     // let sideNav = document.querySelector("#sideNav");
-    const main = jQuery('#main');
+    const main = $('#main');
     // let main = document.querySelector("#main");
     if (this.hidden === false) {
       main.removeClass('l9');
@@ -33,10 +33,10 @@ export class NavBarComponent implements OnInit {
       // sideNav.setAttribute("style", "transform: translateX(-100%); width: 0;");
       // main.classList.remove("l9");
       this.hidden = true;
-    }else {
-      // sideNav.setAttribute("style", "transform: translateX(0px);");
+    } else {
       main.addClass('l9');
       sideNav.removeAttr('style');
+      // sideNav.setAttribute("style", "transform: translateX(0%);");
       // main.classList.add("l9");
       this.hidden = false;
     }

@@ -1,0 +1,37 @@
+<h3>{{title}}</h3>
+<div class="card" *ngIf="errorMessage" >
+  <div class="card-content">
+    <p>{{errorMessage}}</p>
+  </div>
+</div>
+<div class="card" *ngIf="!errorMessage" >
+  <div class="card-image">
+    <!--<img src="assets/img/mountains5.png">-->
+    <span class="card-title">
+      <strong>Titulo:</strong> {{evento.titulo}}
+    </span>
+    <a class="btn-floating halfway-fab waves-effect waves-light red btn-large"><i class="material-icons">edit</i></a>
+  </div>
+  <div class="card-content">
+    <p></p>
+    <p><strong>Descrição:</strong> {{evento.descricao}}</p>
+    <p><strong>Vagas:</strong> {{evento.vagas}}</p>
+    <p><strong>Total de inscritos:</strong> {{evento.inscritos}}</p>
+    <p><strong>Vagas sobrando:</strong> {{evento.vagas - evento.inscritos}}</p>
+    <p><strong>Palestrante:</strong> {{evento.palestrante}}</p>
+    <p><strong>Sala:</strong> {{evento.sala}}</p>
+    <p><strong>Horario:</strong> {{evento.horario}}</p>
+    <p><strong>Dia:</strong> {{evento.data}}</p>
+    <p><strong>Unidade:</strong> {{evento.campus}}</p>
+    <p><strong>Categoria do evento:</strong> {{evento.tipo}}</p>
+  </div>
+</div>
+<div class="card" *ngIf="!errorMessage">
+  <div class="card-content">
+    <app-md-tabela
+      [label]="labelTabela"
+      [options]="optionsTabela"
+      [dados]="evento.alunosInscritos" >
+    </app-md-tabela>
+</div>
+</div>

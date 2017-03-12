@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../auth.service';
-declare var jQuery: any;
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-side-nav',
@@ -26,14 +26,14 @@ export class SideNavComponent implements OnInit {
 
   clicker(event, arrow) {
     event.preventDefault();
-    const text = jQuery(arrow).find('.right').text();
+    const text = $(arrow).find('.right').text();
     // let text = arrow.getElementsByClassName("right")["0"].innerHTML;
     // console.log(text);
     if (text === 'keyboard_arrow_left') {
-      jQuery(arrow).find('.right').text('keyboard_arrow_down');
+      $(arrow).find('.right').text('keyboard_arrow_down');
       // arrow.getElementsByClassName("right")["0"].innerHTML = "keyboard_arrow_down";
     }else {
-      jQuery(arrow).find('.right').text('keyboard_arrow_left');
+      $(arrow).find('.right').text('keyboard_arrow_left');
       // arrow.getElementsByClassName("right")["0"].innerHTML = "keyboard_arrow_right";
     }
   }
