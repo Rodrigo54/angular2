@@ -19,6 +19,7 @@ export class EventosComponent implements OnInit, OnDestroy, AfterViewChecked {
   lista: Array<Object>|any;
   inscricao: Subscription;
   pageSize = 15;
+  filtroReverso:boolean = false;
 
   searchForm: FormGroup;
   searchResult: Array<Object>;
@@ -60,6 +61,42 @@ export class EventosComponent implements OnInit, OnDestroy, AfterViewChecked {
       this.pagedItems = [];
       this.lista = [];
     }
+  }
+
+  filtro(tipo) {
+    function naturalCompare(a, b) {
+      var ax = [], bx = [];
+
+      a[tipo].replace(/(\d+)|(\D+)/g, function(_, $1, $2) { ax.push([$1 || Infinity, $2 || ""]) });
+      b[tipo].replace(/(\d+)|(\D+)/g, function(_, $1, $2) { bx.push([$1 || Infinity, $2 || ""]) });
+
+      while(ax.length && bx.length) {
+          var an = ax.shift();
+          var bn = bx.shift();
+          var nn = (an[0] - bn[0]) || an[1].localeCompare(bn[1]);
+          if(nn) return nn;
+      }
+
+      return ax.length - bx.length;
+    }
+    if (typeof this.searchResult !== 'undefined') {
+      if (this.filtroReverso) {
+        this.filtroReverso = false;
+        this.searchResult = this.searchResult.sort(naturalCompare).reverse();
+      } else {
+        this.filtroReverso = true;
+        this.searchResult = this.searchResult.sort(naturalCompare);
+      }
+    } else {
+      if (this.filtroReverso) {
+        this.filtroReverso = false;
+        this.lista = this.lista.sort(naturalCompare).reverse();
+      } else {
+        this.filtroReverso = true;
+        this.lista = this.lista.sort(naturalCompare);
+      }
+    }
+    this.setPage(1);
   }
 
   search(dados: any) {

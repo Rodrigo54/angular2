@@ -39,16 +39,16 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Titulo</th>
-          <th>Tipo</th>
-          <th>Palestrante</th>
-          <th>Horário</th>
-          <th>Data</th>
-          <th class="center" data-field="vagas">Vagas</th>
-          <th class="center" data-field="abrir">Abrir</th>
-          <th class="center" data-field="pdf">PDF</th>
-          <th class="center" data-field="editar">Editar</th>
-          <th class="center" data-field="apagar">Apagar</th>
+          <th (click)="filtro('titulo')" >Titulo</th>
+          <th (click)="filtro('tipo')" >Tipo</th>
+          <th (click)="filtro('palestrante')" >Palestrante</th>
+          <th (click)="filtro('horario')" >Horário</th>
+          <th (click)="filtro('data')" >Data</th>
+          <th class="center" (click)="filtro('vagas')">Vagas</th>
+          <th class="center">Abrir</th>
+          <th class="center">PDF</th>
+          <th class="center">Editar</th>
+          <th class="center">Apagar</th>
         </tr>
       </thead>
       <tbody>

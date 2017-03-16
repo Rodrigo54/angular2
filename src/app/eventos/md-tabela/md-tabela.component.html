@@ -33,9 +33,9 @@
   <thead>
     <tr>
       <th>#</th>
-      <th *ngFor="let l of label" class="{{l?.class}}">{{l.name}}</th>
+      <th *ngFor="let l of label" class="{{l?.class}}" (click)="filtro(l.value)" >{{l.name}}</th>
       <th *ngFor="let a of options.actions" class="center">{{a.name}}</th>
-      <th class="center">Presença</th>
+      <th class="center" (click)="filtro('presenca')" >Presença</th>
     </tr>
   </thead>
   <tbody>
@@ -49,7 +49,7 @@
         <a *ngIf="isObject(a.routerLink)" routerLink="{{a.routerLink['path']+item[a.routerLink['key']]}}" [class]="a.class+' btn-flat waves-effect waves-light'"><i class="material-icons">{{a.icon}}</i></a>
         <a *ngIf="a.routerLink && !isObject(a.routerLink)" routerLink="{{item[a.routerLink]}}" [class]="a.class+' btn-flat waves-effect waves-light'"><i class="material-icons">{{a.icon}}</i></a>
       </td>
-      <td class="center">
+      <td class="center presenca" [ngClass]="{active:item.presenca == 1}">
         {{ presenca(item.presenca) }}
       </td>
     </tr>

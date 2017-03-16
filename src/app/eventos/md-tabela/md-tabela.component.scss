@@ -2,6 +2,7 @@ table{
   line-height: 0;
   thead{
     box-shadow: 0 5px 4px -2px rgba(0, 0, 0, 0.14);
+    cursor: pointer;
   }
   tr.active{
     background-color: #e0e0e0;
@@ -19,7 +20,7 @@ td {
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 2px 5px;
-  cursor: pointer;
+  cursor: default;
   /deep/ .btn-flat{
     padding: 0 10px;
   }
@@ -39,6 +40,15 @@ td {
     background-color: transparent !important;
     color: #F44336 !important;
   }
+  &.presenca{
+    border-radius: 25px;
+    background-color: #F44336;
+    color: #fff;
+    &.active{
+      background-color: #4CAF50;
+    }
+  }
+
 }
 .pagination{
   display: flex;

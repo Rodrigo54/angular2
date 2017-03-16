@@ -25,6 +25,8 @@ export class MdTabelaComponent implements OnInit, AfterViewChecked {
   errorMessage;
   actions = [];
 
+  filtroReverso:boolean = false;
+
 
   constructor(
     private pagerService: PagerService,
@@ -38,6 +40,10 @@ export class MdTabelaComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
+
+    if (this.dados.length == 0) {
+       this.errorMessage = 'Nada Encontrado';
+    }
     // console.log(this.label);
     this.setPage(1);
   }
@@ -79,6 +85,42 @@ export class MdTabelaComponent implements OnInit, AfterViewChecked {
       this.pager = this.pagerService.getPager(this.dados.length, page, this.pageSize);
       this.pagedItems = this.dados.slice(this.pager.startIndex, this.pager.endIndex + 1);
     }
+  }
+
+  filtro(tipo) {
+    function naturalCompare(a, b) {
+      var ax = [], bx = [];
+
+      a[tipo].replace(/(\d+)|(\D+)/g, function(_, $1, $2) { ax.push([$1 || Infinity, $2 || ""]) });
+      b[tipo].replace(/(\d+)|(\D+)/g, function(_, $1, $2) { bx.push([$1 || Infinity, $2 || ""]) });
+
+      while(ax.length && bx.length) {
+          var an = ax.shift();
+          var bn = bx.shift();
+          var nn = (an[0] - bn[0]) || an[1].localeCompare(bn[1]);
+          if(nn) return nn;
+      }
+
+      return ax.length - bx.length;
+    }
+    if (typeof this.searchResult !== 'undefined') {
+      if (this.filtroReverso) {
+        this.filtroReverso = false;
+        this.searchResult = this.searchResult.sort(naturalCompare).reverse();
+      } else {
+        this.filtroReverso = true;
+        this.searchResult = this.searchResult.sort(naturalCompare);
+      }
+    } else {
+      if (this.filtroReverso) {
+        this.filtroReverso = false;
+        this.dados = this.dados.sort(naturalCompare).reverse();
+      } else {
+        this.filtroReverso = true;
+        this.dados = this.dados.sort(naturalCompare);
+      }
+    }
+    this.setPage(1);
   }
 
   search(dados: any) {
