@@ -1,5 +1,5 @@
-<center>
-# SPA com Angular 2
+<p align="center">
+<h1>SPA com Angular 2</h1>
 
 [![screenshot.jpg](https://s19.postimg.org/972psauib/screenshot.jpg)](https://postimg.org/image/uthq9bt2n/)
 
@@ -7,7 +7,7 @@
 [![requirement](https://img.shields.io/badge/API-Codeigniter-orange.svg)](https://github.com/bcit-ci/CodeIgniter)
 
 :closed_book: Projeto com finalidade educacional
-</center>
+</p>
 
 ## Features
 
