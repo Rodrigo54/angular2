@@ -40,6 +40,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       },
       options: {
         responsive: true,
+        maintainAspectRatio: true,
       }
     };
     return charPie;
@@ -67,6 +68,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       },
       options: {
         responsive: true,
+        maintainAspectRatio: true,
         legend: {
           display: false
         },
