@@ -11,7 +11,8 @@
         "assets",
         "favicon.ico",
         ".htaccess",
-        { "glob": "**/*", "input": "../node_modules/materialize-css/fonts/roboto/", "output": "./assets/fonts/" }
+        { "glob": "**/*.?(eot|svg|ttf|woff|woff2)", "input": "../node_modules/materialize-css/fonts/roboto/", "output": "./assets/fonts/" },
+        { "glob": "**/*.?(eot|svg|ttf|woff|woff2)", "input": "../node_modules/material-design-icons/iconfont/", "output": "./assets/fonts/" }
       ],
       "index": "index.html",
       "main": "main.ts",

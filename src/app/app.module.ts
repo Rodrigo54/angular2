@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, XHRBackend } from '@angular/http';
 
 // plugins
-import { MaterializeModule } from 'angular2-materialize';
+import { MaterializeModule } from 'ng2-materialize';
 import { CustomFormsModule } from 'ng2-validation';
 
  // meus imports
@@ -29,7 +29,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    MaterializeModule,
+    MaterializeModule.forRoot(),
     CustomFormsModule,
     // meus imports
     AppRoutingModule,

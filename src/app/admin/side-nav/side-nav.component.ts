@@ -20,9 +20,11 @@ export class SideNavComponent implements OnInit {
     this.user  =  auth.getUserData();
   }
 
-  ngOnInit() {
-
+  isActive(rota){
+    return this.router.url.match(rota);
   }
+
+  ngOnInit() {}
 
   clicker(event, arrow) {
     event.preventDefault();

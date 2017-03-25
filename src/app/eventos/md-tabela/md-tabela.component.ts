@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { PagerService } from '../pager.service';
 import * as $ from 'jquery';
-import { DomSanitizer } from "@angular/platform-browser/";
 declare var Materialize: any;
 
 @Component({
@@ -31,7 +30,6 @@ export class MdTabelaComponent implements OnInit, AfterViewChecked {
   constructor(
     private pagerService: PagerService,
     private fb: FormBuilder,
-    private sanitizer: DomSanitizer
   ) {
     this.searchForm = fb.group({
       'pesquisar': [''],

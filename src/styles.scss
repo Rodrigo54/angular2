@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import "node_modules/materialize-css/sass/components/mixins";
-@import "node_modules/materialize-css/sass/components/color";
+@import "~materialize-css/sass/components/mixins";
+@import "~materialize-css/sass/components/color";
 
 html{
   background-color: color("blue-grey", "lighten-5");
@@ -15,39 +15,99 @@ $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
 $link-color: color("light-blue", "darken-1") !default;
 
-@import "node_modules/materialize-css/sass/components/variables";
-// $roboto-font-path: "../node_modules/materialize-css/fonts/roboto/"; // fix font path
+@import "~materialize-css/sass/components/variables";
+// $roboto-font-path: "../~materialize-css/fonts/roboto/"; // fix font path
 $roboto-font-path: "/assets/fonts/"; // fix font path
 
 // Reset
-@import "node_modules/materialize-css/sass/components/normalize";
+@import "~materialize-css/sass/components/normalize";
 
 // components
-@import "node_modules/materialize-css/sass/components/global";
-@import "node_modules/materialize-css/sass/components/badges";
-@import "node_modules/materialize-css/sass/components/icons-material-design";
-@import "node_modules/materialize-css/sass/components/grid";
-@import "node_modules/materialize-css/sass/components/navbar";
-@import "node_modules/materialize-css/sass/components/roboto";
-@import "node_modules/materialize-css/sass/components/typography";
-@import "node_modules/materialize-css/sass/components/transitions";
-@import "node_modules/materialize-css/sass/components/cards";
-@import "node_modules/materialize-css/sass/components/toast";
-@import "node_modules/materialize-css/sass/components/tabs";
-@import "node_modules/materialize-css/sass/components/tooltip";
-@import "node_modules/materialize-css/sass/components/buttons";
-@import "node_modules/materialize-css/sass/components/dropdown";
-@import "node_modules/materialize-css/sass/components/waves";
-@import "node_modules/materialize-css/sass/components/modal";
-@import "node_modules/materialize-css/sass/components/collapsible";
-@import "node_modules/materialize-css/sass/components/chips";
-@import "node_modules/materialize-css/sass/components/materialbox";
-@import "node_modules/materialize-css/sass/components/forms/forms";
-@import "node_modules/materialize-css/sass/components/table_of_contents";
-@import "node_modules/materialize-css/sass/components/sideNav";
-@import "node_modules/materialize-css/sass/components/preloader";
-@import "node_modules/materialize-css/sass/components/slider";
-@import "node_modules/materialize-css/sass/components/carousel";
-@import "node_modules/materialize-css/sass/components/date_picker/default";
-@import "node_modules/materialize-css/sass/components/date_picker/default.date";
-@import "node_modules/materialize-css/sass/components/date_picker/default.time";
+@import "~materialize-css/sass/components/global";
+@import "~materialize-css/sass/components/badges";
+@import "~materialize-css/sass/components/icons-material-design";
+@import "~materialize-css/sass/components/grid";
+@import "~materialize-css/sass/components/navbar";
+@import "~materialize-css/sass/components/roboto";
+@import "~materialize-css/sass/components/typography";
+@import "~materialize-css/sass/components/transitions";
+@import "~materialize-css/sass/components/cards";
+@import "~materialize-css/sass/components/toast";
+@import "~materialize-css/sass/components/tabs";
+@import "~materialize-css/sass/components/tooltip";
+@import "~materialize-css/sass/components/buttons";
+@import "~materialize-css/sass/components/dropdown";
+@import "~materialize-css/sass/components/waves";
+@import "~materialize-css/sass/components/modal";
+@import "~materialize-css/sass/components/collapsible";
+@import "~materialize-css/sass/components/chips";
+@import "~materialize-css/sass/components/materialbox";
+@import "~materialize-css/sass/components/forms/forms";
+@import "~materialize-css/sass/components/table_of_contents";
+@import "~materialize-css/sass/components/sideNav";
+@import "~materialize-css/sass/components/preloader";
+@import "~materialize-css/sass/components/slider";
+@import "~materialize-css/sass/components/carousel";
+@import "~materialize-css/sass/components/date_picker/default";
+@import "~materialize-css/sass/components/date_picker/default.date";
+@import "~materialize-css/sass/components/date_picker/default.time";
+
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url("#{$roboto-font-path}MaterialIcons-Regular.eot"); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url("#{$roboto-font-path}MaterialIcons-Regular.woff2") format('woff2'),
+       url("#{$roboto-font-path}MaterialIcons-Regular.woff") format('woff'),
+       url("#{$roboto-font-path}MaterialIcons-Regular.ttf") format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  // line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/* fix required erro*/
+label:after {
+    transition-property: all !important;
+    text-transform:capitalize;
+    font-size: 0.8rem;
+    transform: none;
+}
+label:not(.active):after {
+    transform: translateY(-140%);
+}
+
+/* side nav colapse link active */
+.side-nav .collapsible a.collection-item.active{
+  background-color: rgba(0,0,0,.03);
+  color: $secondary-color;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  &:hover{
+    background-color: rgba(0,0,0,.07);
+  }
+}

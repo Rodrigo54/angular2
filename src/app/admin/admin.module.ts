@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { MaterializeModule } from 'angular2-materialize';
+import { MaterializeModule } from 'ng2-materialize';
 
+import { AdminRoutingModule } from './admin.routing.module';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AdminComponent } from './admin.component';
@@ -12,7 +13,8 @@ import { AdminComponent } from './admin.component';
   imports: [
     CommonModule,
     RouterModule,
-    MaterializeModule
+    MaterializeModule.forRoot(),
+    AdminRoutingModule
   ],
   exports: [],
   declarations: [

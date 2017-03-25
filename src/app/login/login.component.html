@@ -8,28 +8,43 @@
   <div class="card">
   <div class="card-content">
     <h2 class="card-title center-align">Login</h2>
-    <form materialize novalidate [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm.value)" >
-        <div class="input-field col s12">
-          <i class="material-icons prefix">account_box</i>
-          <input type="email" name="email" class="validate" [formControl]="loginForm.controls['email']">
-          <label for="email">Email</label>
-          <p class="erro" *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched">Email requerido.</p>
-          <p class="erro" *ngIf="loginForm.controls.email.errors?.email">Email errado.</p>
-        </div>
-
-        <div class="input-field col s12">
-          <i class="material-icons prefix">lock</i>
-          <input type="password" name="senha" class="validate" [formControl]="loginForm.controls['senha']">
-          <label for="senha">Senha</label>
-          <p class="erro" *ngIf="loginForm.controls['senha'].hasError('required') && loginForm.controls['senha'].touched">Senha requerida.</p>
-        </div>
-
-        <div class="row">
-          <button type="submit" class="waves-effect waves-light btn col s6 offset-s3">
-            Entrar <i class="material-icons right">send</i>
-          </button>
-        </div>
-        <p class="erro center-align" *ngIf="erro || loginForm.invalid">{{erro}}</p>
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm.value)" >
+      <mz-input-container class="col s12">
+        <i mz-icon mz-input-prefix
+          [icon]="'account_box'">
+        </i>
+        <input mz-input
+          [label]="'Email'"
+          [validate]="true"
+          [dataError]="textError('email')"
+          [dataSuccess]="'Email valido'"
+          [ngClass]="hasError('email')"
+          formControlName="email"
+          id="email-input"
+          name="email"
+          type="email" >
+      </mz-input-container>
+      <mz-input-container class="col s12">
+        <i mz-icon mz-input-prefix
+          [icon]="'lock'">
+        </i>
+        <input mz-input
+          [label]="'Senha'"
+          [validate]="true"
+          [dataError]="textError('senha')"
+          [dataSuccess]="'Senha ok'"
+          [ngClass]="hasError('senha')"
+          formControlName="senha"
+          id="senha-input"
+          name="senha"
+          type="password" >
+      </mz-input-container>
+      <div class="row">
+        <button type="submit" mz-button class="col s6 offset-s3">
+          Entrar <i mz-icon [align]="'right'" [icon]="'send'"></i>
+        </button>
+      </div>
+      <p class="red-text center-align" *ngIf="erro">{{erro}}</p>
     </form>
   </div>
   </div>

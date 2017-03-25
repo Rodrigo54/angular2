@@ -1,5 +1,4 @@
 table{
-  line-height: 0;
   thead{
     box-shadow: 0 5px 4px -2px rgba(0, 0, 0, 0.14);
     cursor: pointer;
@@ -8,9 +7,9 @@ table{
     background-color: #e0e0e0;
   }
 }
-.row-id{
+.mini-row{
   width: 50px;
-  label{
+  /deep/label{
     padding-left: 25px;
   }
 }
@@ -23,22 +22,6 @@ td {
   cursor: default;
   /deep/ .btn-flat{
     padding: 0 10px;
-  }
-  /deep/ .blue {
-    background-color: transparent !important;
-    color: #2196F3 !important;
-  }
-  /deep/ .orange {
-    background-color: transparent !important;
-    color: #ff9800 !important;
-  }
-  /deep/ .green {
-    background-color: transparent !important;
-    color: #4CAF50 !important;
-  }
-  /deep/ .red {
-    background-color: transparent !important;
-    color: #F44336 !important;
   }
   &.presenca{
     border-radius: 25px;
@@ -64,7 +47,4 @@ td {
 .not-found{
   padding: 10px;
   font-size: 18px;
-}
-:host {
-
 }

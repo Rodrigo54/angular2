@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterializeModule } from 'angular2-materialize';
+
+import { MaterializeModule } from 'ng2-materialize';
 
 import { EventosRoutingModule } from './eventos.routing.module';
 import { EventosComponent } from './eventos.component';
@@ -18,7 +19,7 @@ import { MdTabelaComponent } from './md-tabela/md-tabela.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterializeModule,
+    MaterializeModule.forRoot(),
     EventosRoutingModule,
     AdminModule
   ],

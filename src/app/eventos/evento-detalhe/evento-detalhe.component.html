@@ -10,7 +10,9 @@
     <span class="card-title">
       <strong>Titulo:</strong> {{evento.titulo}}
     </span>
-    <a class="btn-floating halfway-fab waves-effect waves-light red btn-large"><i class="material-icons">edit</i></a>
+    <a mz-button [float]="true" [large]="true" class="halfway-fab red" routerLink="edit">
+      <i mz-icon icon="edit"></i>
+    </a>
   </div>
   <div class="card-content">
     <p></p>

@@ -2,93 +2,17 @@
   <h3>{{title}}</h3>
   <a class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">add</i></a>
 </div>
-<div class="card">
+<div class="card" *ngIf="errorMessage" >
   <div class="card-content">
-    <div class="row tools" *ngIf="lista.length !== 0">
-      <button (click)="reset()" class="btn waves-effect waves-light">
-        <i class="material-icons">refresh</i>
-      </button>
-      <form materialize [formGroup]="searchForm" (ngSubmit)="search(searchForm.value)">
-        <div class="input-field col s4">
-          <input id="pesquisar" name="pesquisar" type="text" class="validate"
-          formControlName="pesquisar">
-          <label for="pesquisar">Pesquisar</label>
-        </div>
-        <div class="input-field col s4">
-          <select materialize="material_select"
-          [materializeSelectOptions]="selectOptions"
-          formControlName="tipo" name="tipo">
-            <option value="titulo" disabled selected>Escolha um Tipo</option>
-            <option *ngFor="let option of selectOptions" [value]="option.value">{{option.name}}</option>
-          </select>
-          <label>Por</label>
-        </div>
-        <button type="submit" class="btn waves-effect waves-light col s3">Pesquisar
-          <i class="material-icons right">search</i>
-        </button>
-      </form>
-      <div class="input-field col s2">
-        <input [(ngModel)]="pageSize" name="pageSize" id="pageSize" type="number" class="validate">
-        <label for="pageSize" class="active">Por pagina</label>
-      </div>
-      <button (click)="setPage(1)" class="btn waves-effect waves-light">
-        <i class="material-icons">send</i>
-      </button>
-    </div>
-    <table class="bordered" *ngIf="pagedItems.length !== 0">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th (click)="filtro('titulo')" >Titulo</th>
-          <th (click)="filtro('tipo')" >Tipo</th>
-          <th (click)="filtro('palestrante')" >Palestrante</th>
-          <th (click)="filtro('horario')" >Horário</th>
-          <th (click)="filtro('data')" >Data</th>
-          <th class="center" (click)="filtro('vagas')">Vagas</th>
-          <th class="center">Abrir</th>
-          <th class="center">PDF</th>
-          <th class="center">Editar</th>
-          <th class="center">Apagar</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr (click)="rowClick($event, trr)" *ngFor="let evento of pagedItems, let i = index" #trr>
-          <td>
-            <input type="checkbox" id="{{'c'+i+1}}" />
-            <label for="{{'c'+i+1}}">{{i+1+pager.startIndex}}</label>
-          </td>
-          <td>{{evento.titulo}}</td>
-          <td>{{evento.tipo}}</td>
-          <td>{{evento.palestrante}}</td>
-          <td>{{evento.horario}}</td>
-          <td>{{evento.data}}</td>
-          <td class="center" >{{evento.vagas}}</td>
-          <td class="center" ><a routerLink="{{evento.id}}" class="btn-flat blue waves-effect waves-light"><i class="material-icons">open_in_new</i></a></td>
-          <td class="center" ><a class="btn-flat orange waves-effect waves-light"><i class="material-icons">insert_chart</i></a></td>
-          <td class="center" ><a class="btn-flat green waves-effect waves-light"><i class="material-icons">mode_edit</i></a></td>
-          <td class="center" ><a class="btn-flat red waves-effect waves-light"><i class="material-icons">delete</i></a></td>
-        </tr>
-      </tbody>
-    </table>
-    <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-      <li class="waves-effect" [ngClass]="{disabled:pager.currentPage === 1}">
-        <a (click)="setPage(1)"><i class="material-icons">first_page</i></a>
-      </li>
-      <li class="waves-effect" [ngClass]="{disabled:pager.currentPage === 1}">
-        <a (click)="setPage(pager.currentPage - 1)"><i class="material-icons">chevron_left</i></a>
-      </li>
-      <li class="waves-effect" *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-        <a (click)="setPage(page)">{{page}}</a>
-      </li>
-      <li class="waves-effect" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-        <a (click)="setPage(pager.currentPage + 1)"><i class="material-icons">chevron_right</i></a>
-      </li>
-      <li class="waves-effect" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-        <a (click)="setPage(pager.totalPages)"><i class="material-icons">last_page</i></a>
-      </li>
-    </ul>
-    <div *ngIf="errorMessage" class="not-found">
-      {{errorMessage}}
-    </div>
+    <p>{{errorMessage}}</p>
+  </div>
+</div>
+<div class="card" *ngIf="!errorMessage" >
+  <div class="card-content">
+    <app-md-tabela
+      [label]="labelTabela"
+      [options]="optionsTabela"
+      [dados]="lista" >
+    </app-md-tabela>
   </div>
 </div>

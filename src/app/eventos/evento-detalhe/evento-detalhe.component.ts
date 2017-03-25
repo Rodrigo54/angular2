@@ -26,12 +26,12 @@ export class EventoDetalheComponent implements OnInit, OnDestroy {
   optionsTabela = {
     search: true,
     labelPrimary: 'nome',
+    eventoDetalhe: true,
     actions: [
       // { name: 'Editar', class: 'blue', icon: 'edit', routerLink:{ key: 'id_usuario', path: 'edit/'} },
       // { name: 'Presença', class: 'blue', icon: 'edit' }
     ]
   };
-
 
   constructor(
     private route: ActivatedRoute,
@@ -48,16 +48,10 @@ export class EventoDetalheComponent implements OnInit, OnDestroy {
     if (this.evento['message']){
       this.errorMessage = this.evento['message'];
     }
-    // console.log(this.evento);
   }
-
-
 
   ngOnDestroy() {
     this.inscricao.unsubscribe();
   }
 
-  ngAfterViewChecked() {
-    Materialize.updateTextFields();
-  }
 }
