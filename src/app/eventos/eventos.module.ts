@@ -6,13 +6,11 @@ import { MaterializeModule } from 'ng2-materialize';
 
 import { EventosRoutingModule } from './eventos.routing.module';
 import { EventosComponent } from './eventos.component';
-import { AdminModule } from '../admin/admin.module';
 import { EventosService } from './eventos.service';
 import { EventosResolve } from './eventos.resolve';
-import { PagerService } from './pager.service';
 import { EventoDetalheComponent } from './evento-detalhe/evento-detalhe.component';
 import { EventoDetalheResolve } from './evento-detalhe/evento-detalhe.resolve';
-import { MdTabelaComponent } from './md-tabela/md-tabela.component';
+import { EventosTabelaComponent } from './eventos-tabela.component';
 
 @NgModule({
   imports: [
@@ -21,18 +19,16 @@ import { MdTabelaComponent } from './md-tabela/md-tabela.component';
     ReactiveFormsModule,
     MaterializeModule.forRoot(),
     EventosRoutingModule,
-    AdminModule
   ],
   declarations: [
     EventosComponent,
     EventoDetalheComponent,
-    MdTabelaComponent,
+    EventosTabelaComponent
   ],
   providers: [
     EventosService,
     EventosResolve,
     EventoDetalheResolve,
-    PagerService
   ],
 })
 export class EventosModule { }

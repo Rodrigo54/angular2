@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 
-import { PagerService } from '../pager.service';
 import * as $ from 'jquery';
 declare var Materialize: any;
 
@@ -35,7 +34,6 @@ export class EventoDetalheComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private pagerService: PagerService
   ) { }
 
   ngOnInit() {

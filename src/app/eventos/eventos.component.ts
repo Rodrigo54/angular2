@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 
-import { PagerService } from './pager.service';
 import * as $ from 'jquery';
 declare var Materialize: any;
 

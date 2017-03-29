@@ -16,6 +16,10 @@ const routes: Routes = [
         loadChildren: 'app/eventos/eventos.module#EventosModule',
         canLoad: [AuthGuard]
       },
+      { path: 'usuarios',
+        loadChildren: 'app/usuarios/usuarios.module#UsuariosModule',
+        canLoad: [AuthGuard]
+      },
     ]
   },
 ];

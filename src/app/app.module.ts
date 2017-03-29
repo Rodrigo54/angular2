@@ -10,19 +10,20 @@ import { CustomFormsModule } from 'ng2-validation';
  // meus imports
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DefaultBackendProvider } from './extended-xhrbackend';
 import { AppRoutingModule } from './app.routing.module';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './guards/auth.guard';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { EventosModule } from './eventos/eventos.module';
-import { DefaultBackendProvider } from './extended-xhrbackend';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { TabelaComponent } from './tabela/tabela.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PageNotFoundComponent,
+    TabelaComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,8 +34,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     CustomFormsModule,
     // meus imports
     AppRoutingModule,
-    DashboardModule,
-    EventosModule
   ],
   providers: [
     DefaultBackendProvider,

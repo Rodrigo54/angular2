@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as _ from 'underscore';
 
 @Injectable()
-export class PagerService {
+export class TabelaService {
 
   constructor() { }
 

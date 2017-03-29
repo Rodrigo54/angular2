@@ -1,16 +1,17 @@
 import { Component, OnInit, AfterViewChecked, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { PagerService } from '../pager.service';
+import { TabelaService } from './tabela.service';
 import * as $ from 'jquery';
 declare var Materialize: any;
 
 @Component({
-  selector: 'app-md-tabela',
-  templateUrl: './md-tabela.component.html',
-  styleUrls: ['./md-tabela.component.scss']
+  selector: 'app-tabela',
+  templateUrl: './tabela.component.html',
+  styleUrls: ['./tabela.component.scss'],
+  providers: [ TabelaService ]
 })
-export class MdTabelaComponent implements OnInit, AfterViewChecked {
+export class TabelaComponent implements OnInit {
 
   @Input() dados;
   @Input() label;
@@ -28,7 +29,7 @@ export class MdTabelaComponent implements OnInit, AfterViewChecked {
 
 
   constructor(
-    private pagerService: PagerService,
+    private pagerService: TabelaService,
     private fb: FormBuilder,
   ) {
     this.searchForm = fb.group({
@@ -141,5 +142,4 @@ export class MdTabelaComponent implements OnInit, AfterViewChecked {
   ngAfterViewChecked() {
     Materialize.updateTextFields();
   }
-
 }

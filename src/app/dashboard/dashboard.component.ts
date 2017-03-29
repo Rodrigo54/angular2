@@ -12,8 +12,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
   totais;
   title: string;
   errorMessage: string;
-  chartPie: Object;
-  chartBar: Object;
+  chartPie: any;
+  chartBar: any;
   inscricao: Subscription;
 
   constructor(

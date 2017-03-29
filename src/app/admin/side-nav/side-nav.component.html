@@ -6,14 +6,14 @@
   <div class="row">
     <div class="profile">
         <div class="profile-image">
-          <img src="./assets/img/profile-image.png" class="circle" alt="">
+          <img src="./assets/img/profile-image.png" class="circle" alt="user">
         </div>
         <div class="profile-info">
           <mz-sidenav-collapsible>
-            <mz-sidenav-collapsible-header #arrow0 (click)="clicker($event, arrow0)">
+            <mz-sidenav-collapsible-header (click)="clicker($event, arrow0)">
               <p>{{user.nome}}</p>
               <span class="truncate">{{user.email}}</span>
-              <i mz-icon [icon]="'keyboard_arrow_left'" [align]="'right'"></i>
+              <i #arrow0 mz-icon [icon]="'keyboard_arrow_left'" [align]="'right'"></i>
             </mz-sidenav-collapsible-header>
             <mz-sidenav-collapsible-content>
               <mz-sidenav-link>
@@ -29,45 +29,42 @@
           </mz-sidenav-collapsible>
         </div>
     </div>
-    <div class="collection">
+    <div class="collection" >
       <mz-sidenav-link>
         <a routerLink="dashboard" routerLinkActive="active" class="collection-item waves-effect">
           <i mz-icon [icon]="'dashboard'"></i>Inicio
         </a>
       </mz-sidenav-link>
       <mz-sidenav-collapsible>
-        <mz-sidenav-collapsible-header #arrow1 (click)="clicker($event, arrow1)">
-          <div class="collection-item" [ngClass]="{'active':isActive('/admin/eventos')}">
-          <i mz-icon [icon]="'event'"></i>Eventos<i mz-icon [icon]="'keyboard_arrow_left'" [align]="'right'"></i>
+        <mz-sidenav-collapsible-header (click)="clicker($event, arrow1)">
+          <div class="header-colapse" [ngClass]="{'active':isActive('/admin/eventos')}">
+          <i mz-icon [icon]="'event'"></i>Eventos<i #arrow1 mz-icon [icon]="'keyboard_arrow_left'" [align]="'right'"></i>
           </div>
         </mz-sidenav-collapsible-header>
         <mz-sidenav-collapsible-content>
           <mz-sidenav-link>
-            <a routerLink="eventos" routerLinkActive="active" class="collection-item waves-effect">Lista dos Eventos</a>
+            <a routerLink="eventos" routerLinkActive="active" class="waves-effect" >Lista dos Eventos</a>
           </mz-sidenav-link>
           <mz-sidenav-link>
-            <a href="javascript:void(0);" class="collection-item waves-effect">Novo Evento</a>
+            <a href="javascript:void(0);" class="waves-effect">Novo Evento</a>
           </mz-sidenav-link>
           <mz-sidenav-link>
-            <a href="javascript:void(0);" class="collection-item waves-effect">Tipos de Eventos</a>
+            <a href="javascript:void(0);" class="waves-effect">Tipos de Eventos</a>
           </mz-sidenav-link>
         </mz-sidenav-collapsible-content>
       </mz-sidenav-collapsible>
       <mz-sidenav-collapsible>
-        <mz-sidenav-collapsible-header #arrow2 (click)="clicker($event, arrow2)">
-          <div class="collection-item" [ngClass]="{'active':isActive('/admin/usuarios')}">
-          <i mz-icon [icon]="'account_box'"></i>Usuarios<i mz-icon [icon]="'keyboard_arrow_left'" [align]="'right'"></i>
+        <mz-sidenav-collapsible-header (click)="clicker($event, arrow2)">
+          <div class="header-colapse" [ngClass]="{'active':isActive('/admin/usuario')}">
+          <i mz-icon [icon]="'account_box'"></i>Usuarios<i #arrow2 mz-icon [icon]="'keyboard_arrow_left'" [align]="'right'"></i>
           </div>
         </mz-sidenav-collapsible-header>
         <mz-sidenav-collapsible-content>
           <mz-sidenav-link>
-            <a href="javascript:void(0);" class="collection-item waves-effect">Novo Evento</a>
+            <a routerLink="/admin/usuarios" routerLinkActive="active" class="waves-effect">Lista dos Usuarios</a>
           </mz-sidenav-link>
           <mz-sidenav-link>
-            <a routerLink="/admin/usuarios" routerLinkActive="active" class="collection-item waves-effect">Lista</a>
-          </mz-sidenav-link>
-          <mz-sidenav-link>
-            <a href="javascript:void(0);" class="collection-item waves-effect">Tipos de Eventos</a>
+            <a href="javascript:void(0);" class="waves-effect">Novo Usuario</a>
           </mz-sidenav-link>
         </mz-sidenav-collapsible-content>
       </mz-sidenav-collapsible>

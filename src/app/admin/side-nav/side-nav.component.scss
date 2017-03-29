@@ -3,13 +3,14 @@ $largura: 17%;
 $font-size: 13px;
 
 :host {
-  i.material-icons  {
-    line-height: 3rem;
-    margin: 0 10px 0 0;
-    width: auto;
-    float: left;
+   #{"/deep/"}i.material-icons  {
+    margin: 0 1rem 0 0 !important;
+    width: 2rem !important;
+    color: inherit !important;
     font-size: 19px;
-    color: inherit;
+    line-height: 3rem;
+    text-align: center;
+    float: left;
   }
 }
 .main {
@@ -22,7 +23,7 @@ $font-size: 13px;
     height: calc(100% - 60px);
     overflow-y: scroll;
   }
-  /deep/.side-nav{
+  #{"/deep/"}.side-nav{
     width: inherit;
     div.row{
       display: flex;
@@ -36,7 +37,7 @@ $font-size: 13px;
 .collection {
   border: none;
   overflow: visible;
-  a{
+  #{"/deep/"}a{
     padding: 0px;
     padding-left: 16px;
     height: 3rem;
@@ -44,7 +45,7 @@ $font-size: 13px;
       background-color: rgba(0,0,0,.07) !important;
     }
   }
-  a, mz-sidenav-collapsible-header div{
+  #{"/deep/"}.header-colapse{
     font-size: $font-size;
     line-height: 3rem;
     &:not(.active){
@@ -53,12 +54,19 @@ $font-size: 13px;
       background-color: rgba(0,0,0,.03);
     }
   }
-  mz-sidenav-collapsible-header div{
+  #{"/deep/"}.header-colapse{
     margin: 0 -16px;
     padding: 0 16px;
   }
-  /deep/.collapsible-body{
+  #{"/deep/"}.collapsible-body{
     background-color: transparent;
+  }
+  &-item{
+    line-height: 48px;
+    color: $text-color !important;
+    &.active{
+      color: #fff !important;
+    }
   }
 }
 
@@ -70,9 +78,9 @@ $font-size: 13px;
     width: 50px;
     height: 50px;
   }
-  &-info {
+  &-info #{"/deep/"} {
     margin-top: 5px;
-    /deep/a.collapsible-header{
+    #{"#{"/deep/"}"} a.collapsible-header{
       min-height: 100%;
       line-height: 1.5;
       color: $text-color;
@@ -92,12 +100,12 @@ $font-size: 13px;
       font-weight: 400;
     }
     i.right{
-      margin-right: 0;
-      margin-top: -1.2rem;
+      margin-right: 0 !important;
+      margin-top: -1.2rem !important;
       line-height: 1;
       height: 19px;
     }
-    /deep/li{
+    #{"/deep/"}li{
       background-color: transparent;
       & > .collapsible-body{
         background-color: transparent;

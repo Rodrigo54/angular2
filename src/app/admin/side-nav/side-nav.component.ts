@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../auth.service';
@@ -11,32 +12,29 @@ import * as $ from 'jquery';
 })
 export class SideNavComponent implements OnInit {
 
-  user: Object;
+  user: any;
 
   constructor(
     private router: Router,
     private auth: AuthService
-  ) {
-    this.user  =  auth.getUserData();
+  ) { }
+
+  isActive(rota): boolean {
+    let rotaAtual = this.router.url;
+    return rotaAtual.indexOf(rota) !== -1;
   }
 
-  isActive(rota){
-    return this.router.url.match(rota);
+  ngOnInit() {
+     this.user  =  this.auth.getUserData();
   }
-
-  ngOnInit() {}
 
   clicker(event, arrow) {
     event.preventDefault();
-    const text = $(arrow).find('.right').text();
-    // let text = arrow.getElementsByClassName("right")["0"].innerHTML;
-    // console.log(text);
+    const text = $(arrow).text();
     if (text === 'keyboard_arrow_left') {
-      $(arrow).find('.right').text('keyboard_arrow_down');
-      // arrow.getElementsByClassName("right")["0"].innerHTML = "keyboard_arrow_down";
+      $(arrow).text('keyboard_arrow_down');
     }else {
-      $(arrow).find('.right').text('keyboard_arrow_left');
-      // arrow.getElementsByClassName("right")["0"].innerHTML = "keyboard_arrow_right";
+      $(arrow).text('keyboard_arrow_left');
     }
   }
 
@@ -49,6 +47,6 @@ export class SideNavComponent implements OnInit {
         console.log(dados.message);
       }
     );
-    console.log('saindo');
+    console.log('saindo...');
   }
 }

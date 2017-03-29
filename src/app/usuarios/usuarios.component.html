@@ -1,7 +1,4 @@
-<div class="topo">
-  <h3>{{title}}</h3>
-  <a class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">add</i></a>
-</div>
+<h3>{{title}}</h3>
 <div class="card" *ngIf="errorMessage" >
   <div class="card-content">
     <p>{{errorMessage}}</p>
@@ -9,10 +6,10 @@
 </div>
 <div class="card" *ngIf="!errorMessage" >
   <div class="card-content">
-    <app-eventos-tabela
+    <app-usuarios-tabela
       [label]="labelTabela"
       [options]="optionsTabela"
       [dados]="lista" >
-    </app-eventos-tabela>
+    </app-usuarios-tabela>
   </div>
 </div>

@@ -47,7 +47,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr (click)="rowClick($event, trr)" *ngFor="let item of pagedItems, let i = index" #trr>
+    <tr (click)="rowClick($event, trr)" *ngFor="let item of pagedItems, index as i" #trr>
       <td class="mini-row">
         <mz-checkbox-container>
           <input mz-checkbox
