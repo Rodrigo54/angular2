@@ -103,19 +103,21 @@ label:not(.active):after {
 
 
 /* side nav colapse link active */
-.side-nav .collapsible{
-  .header-colapse.active{
-    background-color: $secondary-color;
-    color: #fff;
-  }
-  mz-sidenav-link a.active{
-    background-color: rgba(0,0,0,.03);
-    color: $secondary-color;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    &:hover{
-      background-color: rgba(0,0,0,.07);
+.side-nav{
+  z-index: 998;
+  .collapsible{
+    .header-colapse.active{
+      background-color: $secondary-color;
+      color: #fff;
+    }
+    mz-sidenav-link a.active{
+      background-color: rgba(0,0,0,.03);
+      color: $secondary-color;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      &:hover{
+        background-color: rgba(0,0,0,.07);
+      }
     }
   }
-
 }

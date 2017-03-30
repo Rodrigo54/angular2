@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule, XHRBackend } from '@angular/http';
+import { Http, HttpModule, RequestOptions, XHRBackend } from '@angular/http';
 
 // plugins
 import { MaterializeModule } from 'ng2-materialize';
@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { TabelaComponent } from './tabela/tabela.component';
+import { HttpProvider } from './http.service';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { TabelaComponent } from './tabela/tabela.component';
   providers: [
     DefaultBackendProvider,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    HttpProvider
   ],
   bootstrap: [AppComponent]
 })

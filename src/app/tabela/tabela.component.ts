@@ -17,7 +17,7 @@ export class TabelaComponent implements OnInit {
   @Input() label;
   @Input() options;
 
-  pageSize = 15;
+  pageSize: number;
   pager: any = {};
   pagedItems: any[];
   searchResult;
@@ -39,7 +39,7 @@ export class TabelaComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.pageSize = this.options.pageSize ? this.options.pageSize : 15;
     if (this.dados.length == 0) {
        this.errorMessage = 'Nada Encontrado';
     }

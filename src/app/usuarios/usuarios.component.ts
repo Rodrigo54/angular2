@@ -24,14 +24,7 @@ export class UsuariosComponent implements OnInit {
   optionsTabela = {
     search: true,
     labelPrimary: 'nome',
-    // eventoDetalhe: false,
-    // actions: [
-    //   { name: 'Abrir', class: 'blue-text', icon: 'open_in_new', routerLink: 'id' },
-    //   { name: 'Editar', class: 'green-text', icon: 'edit', routerLink:{ key: 'id', path: '/edit'} },
-    //   { name: 'PDF', class: 'orange-text', icon: 'insert_chart', link: 'https://material.io/icons/' },
-    //   { name: 'Apagar', class: 'red-text', icon: 'delete', link: 'https://material.io/icons/' },
-    //   // { name: 'Presença', class: 'blue', icon: 'edit' }
-    // ]
+    pageSize: 25,
   };
 
   constructor(
@@ -49,5 +42,9 @@ export class UsuariosComponent implements OnInit {
       this.errorMessage = this.lista.message;
       this.lista = [];
     }
+  }
+
+  ngOnDestroy() {
+    this.inscricao.unsubscribe();
   }
 }
