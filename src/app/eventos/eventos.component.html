@@ -1,6 +1,8 @@
 <div class="topo">
   <h3>{{title}}</h3>
-  <a class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">add</i></a>
+  <a mz-button [float]="true" [large]="true" class="green">
+    <i mz-icon icon="add"></i>
+  </a>
 </div>
 <div class="card" *ngIf="errorMessage" >
   <div class="card-content">

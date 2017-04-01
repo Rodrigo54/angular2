@@ -6,6 +6,22 @@
   @media only screen and (max-width: 993px){
     flex-direction: column;
   }
+  .chartBar{
+    @media only screen and (min-width: 1201px){
+      width: calc( (100% / 12)*8 );
+    }
+    @media only screen and (min-width: 800px) and (max-width: 1200px){
+      width: calc( (100% / 12)*6 );
+    }
+  }
+  .chartPie{
+    @media only screen and (min-width: 1201px){
+      width: calc( (100% / 12)*4 );
+    }
+    @media only screen and (min-width: 800px) and (max-width: 1200px){
+      width: calc( (100% / 12)*6 );
+    }
+  }
   .col{
     align-self:stretch;
   }
@@ -20,7 +36,7 @@
   display: flex;
   #{"/deep/"}.material-icons{
     color: #fff;
-    font-size: 80px;
+    font-size: 3.5rem;
     flex: 1;
     display: flex;
     justify-content: center;
@@ -30,6 +46,7 @@
     height: 100%;
     flex: 1;
     h3{
+      font-size: 2rem;
       margin-bottom: 0;
     }
   }

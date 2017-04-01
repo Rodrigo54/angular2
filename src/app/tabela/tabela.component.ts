@@ -25,7 +25,9 @@ export class TabelaComponent implements OnInit {
   errorMessage;
   actions = [];
 
-  filtroReverso:boolean = false;
+  filtroReverso: boolean = false;
+  filtroTipo: string;
+  filtroIcon: string;
 
 
   constructor(
@@ -90,8 +92,8 @@ export class TabelaComponent implements OnInit {
     function naturalCompare(a, b) {
       var ax = [], bx = [];
 
-      a[tipo].replace(/(\d+)|(\D+)/g, function(_, $1, $2) { ax.push([$1 || Infinity, $2 || ""]) });
-      b[tipo].replace(/(\d+)|(\D+)/g, function(_, $1, $2) { bx.push([$1 || Infinity, $2 || ""]) });
+      a[tipo].replace(/(\d+)|(\w+)/g, function(_, $1, $2) { ax.push([$1 || Infinity, $2 || ""]) });
+      b[tipo].replace(/(\d+)|(\w+)/g, function(_, $1, $2) { bx.push([$1 || Infinity, $2 || ""]) });
 
       while(ax.length && bx.length) {
           var an = ax.shift();
@@ -103,20 +105,26 @@ export class TabelaComponent implements OnInit {
       return ax.length - bx.length;
     }
     if (typeof this.searchResult !== 'undefined') {
-      if (this.filtroReverso) {
+      if (this.filtroReverso && this.filtroTipo == tipo) {
         this.filtroReverso = false;
         this.searchResult = this.searchResult.sort(naturalCompare).reverse();
+        this.filtroIcon = 'keyboard_arrow_up';
       } else {
         this.filtroReverso = true;
         this.searchResult = this.searchResult.sort(naturalCompare);
+        this.filtroTipo = tipo;
+        this.filtroIcon = 'keyboard_arrow_down';
       }
     } else {
-      if (this.filtroReverso) {
+      if (this.filtroReverso && this.filtroTipo == tipo) {
         this.filtroReverso = false;
         this.dados = this.dados.sort(naturalCompare).reverse();
+        this.filtroIcon = 'keyboard_arrow_up';
       } else {
         this.filtroReverso = true;
         this.dados = this.dados.sort(naturalCompare);
+        this.filtroTipo = tipo;
+        this.filtroIcon = 'keyboard_arrow_down';
       }
     }
     this.setPage(1);

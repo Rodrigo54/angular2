@@ -105,6 +105,7 @@ label:not(.active):after {
 /* side nav colapse link active */
 .side-nav{
   z-index: 998;
+  height: calc(100% + 60px);
   .collapsible{
     .header-colapse.active{
       background-color: $secondary-color;

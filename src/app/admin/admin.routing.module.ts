@@ -20,6 +20,7 @@ const routes: Routes = [
         loadChildren: 'app/usuarios/usuarios.module#UsuariosModule',
         canLoad: [AuthGuard]
       },
+      { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' },
     ]
   },
 ];
