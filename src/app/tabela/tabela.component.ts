@@ -136,7 +136,7 @@ export class TabelaComponent implements OnInit {
     this.searchResult = this.dados.filter(
       (evento: any) => {
         const valor = evento[tipo].toLowerCase();
-        if (valor.search(pesquisa) !== -1) {
+        if (valor.indexOf(pesquisa) >= 0) {
           return evento;
         }
       }
