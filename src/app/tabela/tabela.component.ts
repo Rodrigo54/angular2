@@ -92,8 +92,8 @@ export class TabelaComponent implements OnInit {
     function naturalCompare(a, b) {
       var ax = [], bx = [];
 
-      a[tipo].replace(/(\d+)|(\w+)/g, function(_, $1, $2) { ax.push([$1 || Infinity, $2 || ""]) });
-      b[tipo].replace(/(\d+)|(\w+)/g, function(_, $1, $2) { bx.push([$1 || Infinity, $2 || ""]) });
+      a[tipo].replace(/(\d+)|(\D+)/g, function(_, $1, $2) { ax.push([$1 || Infinity, $2 || ""]) });
+      b[tipo].replace(/(\d+)|(\D+)/g, function(_, $1, $2) { bx.push([$1 || Infinity, $2 || ""]) });
 
       while(ax.length && bx.length) {
           var an = ax.shift();

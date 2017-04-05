@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../environments/environment';
+import { User } from './user';
 
 @Injectable()
 export class AuthService {
 
   private listaUrl =  environment.apiBaseUrl + '/autenticador/';
-  private userData: Object;
+  private userData: User;
 
   constructor(private http: Http) {}
 
@@ -29,7 +30,7 @@ export class AuthService {
     localStorage.setItem('userData', JSON.stringify(this.userData));
   }
 
-  getUserData() {
+  getUserData(): User {
     const dados = localStorage.getItem('userData');
     return this.userData = JSON.parse(dados);
   }

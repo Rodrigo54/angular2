@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { User } from './../../user';
 
 import { AuthService } from '../../auth.service';
 import * as $ from 'jquery';
@@ -12,7 +13,7 @@ import * as $ from 'jquery';
 })
 export class SideNavComponent implements OnInit {
 
-  user: any;
+  user: User;
 
   constructor(
     private router: Router,

@@ -1,5 +1,7 @@
-.row{
-  overflow: scroll;
+.row.tabela{
+  //@media only screen and (max-width: 993px){
+    overflow: scroll;
+  //}
 }
 table{
   thead{
